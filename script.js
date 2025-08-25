@@ -1,121 +1,46 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+document.getElementById("generateBtn").addEventListener("click", () => {
+  const keywords = document.getElementById("keywords").value.split(",");
+  const style = document.getElementById("style").value;
+  const category = document.getElementById("category").value;
+  const wordCount = parseInt(document.getElementById("wordCount").value);
+  const results = document.getElementById("results");
 
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f9fbfd;
-  color: #333;
-  line-height: 1.6;
-}
+  results.innerHTML = "";
 
-/* Header */
-header {
-  background: linear-gradient(90deg, #007bff, #0056d2);
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem;
-}
+  // Example words for styles/categories
+  const styleWords = {
+    trendy: ["Hive", "Pulse", "Buzz", "Vibe", "Glow"],
+    professional: ["Group", "Consult", "Partners", "Solutions", "Associates"],
+    creative: ["Spark", "Nest", "Flow", "Edge", "Forge"]
+  };
 
-header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
+  const categoryWords = {
+    general: ["Point", "Works", "Lab", "Zone", "Cloud"],
+    tech: ["Tech", "AI", "Logic", "Byte", "Soft"],
+    clothing: ["Wear", "Trend", "Fit", "Mode", "Style"],
+    food: ["Bites", "Kitchen", "Fresh", "Taste", "Delish"],
+    creative: ["Art", "Vision", "Craft", "Idea", "Ink"],
+    modern: ["Nova", "Neo", "Next", "Prime", "Shift"]
+  };
 
-header p {
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
-}
+  let baseWords = (keywords[0] ? keywords.map(k => k.trim()) : ["Biz"]);
 
-/* Main Layout */
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 2rem auto;
-}
+  for (let i = 0; i < 10; i++) {
+    let nameParts = [];
 
-.generator-box,
-.results-box {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  margin-bottom: 2rem;
-}
+    for (let j = 0; j < wordCount; j++) {
+      if (j === 0) {
+        nameParts.push(baseWords[Math.floor(Math.random() * baseWords.length)]);
+      } else if (j === 1) {
+        nameParts.push(styleWords[style][Math.floor(Math.random() * styleWords[style].length)]);
+      } else {
+        nameParts.push(categoryWords[category][Math.floor(Math.random() * categoryWords[category].length)]);
+      }
+    }
 
-h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: #0056d2;
-}
-
-/* Form Styles */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-input, select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-button {
-  background: #007bff;
-  color: #fff;
-  border: none;
-  padding: 0.9rem 1.5rem;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-  width: 100%;
-  font-weight: bold;
-}
-
-button:hover {
-  background: #0056d2;
-}
-
-/* Results */
-.results-box ul {
-  list-style: none;
-}
-
-.results-box li {
-  background: #f1f5ff;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  margin: 0.5rem 0;
-  font-weight: 500;
-  border: 1px solid #cfe2ff;
-}
-
-/* Footer */
-footer {
-  background: #f1f5ff;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-footer nav a {
-  color: #0056d2;
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
-footer nav a:hover {
-  text-decoration: underline;
-}
+    const finalName = nameParts.join(" ");
+    const li = document.createElement("li");
+    li.textContent = finalName;
+    results.appendChild(li);
+  }
+});
