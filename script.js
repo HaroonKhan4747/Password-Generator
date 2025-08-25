@@ -1,46 +1,42 @@
-document.getElementById("generateBtn").addEventListener("click", () => {
-  const keywords = document.getElementById("keywords").value.split(",");
-  const style = document.getElementById("style").value;
+const generateBtn = document.getElementById("generateBtn");
+const resultsDiv = document.getElementById("results");
+
+const nameIdeas = {
+  tech: ["Cloudify", "CodeNest", "PixelForge", "SoftSpark", "ByteLabs"],
+  clothing: ["UrbanThread", "StyleNest", "TrendHive", "ModeCraft", "ChicWard"],
+  food: ["TastyBite", "Freshly", "FlavorNest", "BellyGood", "Savorly"],
+  creative: ["Dreamloom", "Visionary", "SparkFlow", "MuseLab", "Artify"],
+  modern: ["Nexa", "Zentro", "Fluxa", "Modiva", "Uporia"],
+};
+
+function generateNames() {
+  resultsDiv.innerHTML = "";
+
   const category = document.getElementById("category").value;
-  const wordCount = parseInt(document.getElementById("wordCount").value);
-  const results = document.getElementById("results");
+  const wordLength = document.getElementById("wordLength").value;
 
-  results.innerHTML = "";
+  let ideas = [];
 
-  // Example words for styles/categories
-  const styleWords = {
-    trendy: ["Hive", "Pulse", "Buzz", "Vibe", "Glow"],
-    professional: ["Group", "Consult", "Partners", "Solutions", "Associates"],
-    creative: ["Spark", "Nest", "Flow", "Edge", "Forge"]
-  };
-
-  const categoryWords = {
-    general: ["Point", "Works", "Lab", "Zone", "Cloud"],
-    tech: ["Tech", "AI", "Logic", "Byte", "Soft"],
-    clothing: ["Wear", "Trend", "Fit", "Mode", "Style"],
-    food: ["Bites", "Kitchen", "Fresh", "Taste", "Delish"],
-    creative: ["Art", "Vision", "Craft", "Idea", "Ink"],
-    modern: ["Nova", "Neo", "Next", "Prime", "Shift"]
-  };
-
-  let baseWords = (keywords[0] ? keywords.map(k => k.trim()) : ["Biz"]);
-
-  for (let i = 0; i < 10; i++) {
-    let nameParts = [];
-
-    for (let j = 0; j < wordCount; j++) {
-      if (j === 0) {
-        nameParts.push(baseWords[Math.floor(Math.random() * baseWords.length)]);
-      } else if (j === 1) {
-        nameParts.push(styleWords[style][Math.floor(Math.random() * styleWords[style].length)]);
-      } else {
-        nameParts.push(categoryWords[category][Math.floor(Math.random() * categoryWords[category].length)]);
-      }
-    }
-
-    const finalName = nameParts.join(" ");
-    const li = document.createElement("li");
-    li.textContent = finalName;
-    results.appendChild(li);
+  if (category === "all") {
+    Object.values(nameIdeas).forEach(arr => ideas.push(...arr));
+  } else {
+    ideas = nameIdeas[category];
   }
-});
+
+  // Filter by word length
+  if (wordLength !== "any") {
+    ideas = ideas.filter(name => name.split(/(?=[A-Z])/).length == wordLength);
+  }
+
+  ideas.forEach(name => {
+    const div = document.createElement("div");
+    div.className = "result-item";
+    div.innerHTML = `
+      <span>${name}</span>
+      <a href="https://www.godaddy.com/en/domainsearch/find?checkAvail=1&tmskey=&domainToCheck=${name.toLowerCase()}.com" target="_blank">Check Domain</a>
+    `;
+    resultsDiv.appendChild(div);
+  });
+}
+
+generateBtn.addEventListener("click", generateNames);
