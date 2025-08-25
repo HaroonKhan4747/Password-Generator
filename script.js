@@ -1,42 +1,26 @@
-const generateBtn = document.getElementById("generateBtn");
-const resultsDiv = document.getElementById("results");
-
-const nameIdeas = {
-  tech: ["Cloudify", "CodeNest", "PixelForge", "SoftSpark", "ByteLabs"],
-  clothing: ["UrbanThread", "StyleNest", "TrendHive", "ModeCraft", "ChicWard"],
-  food: ["TastyBite", "Freshly", "FlavorNest", "BellyGood", "Savorly"],
-  creative: ["Dreamloom", "Visionary", "SparkFlow", "MuseLab", "Artify"],
-  modern: ["Nexa", "Zentro", "Fluxa", "Modiva", "Uporia"],
-};
-
 function generateNames() {
+  const keywords = document.getElementById("keywords").value.split(",");
+  const numNames = document.getElementById("numNames").value;
+  const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = "";
 
-  const category = document.getElementById("category").value;
-  const wordLength = document.getElementById("wordLength").value;
-
-  let ideas = [];
-
-  if (category === "all") {
-    Object.values(nameIdeas).forEach(arr => ideas.push(...arr));
-  } else {
-    ideas = nameIdeas[category];
+  if (keywords.length === 0 || keywords[0] === "") {
+    resultsDiv.innerHTML = "<p>Please enter at least one keyword.</p>";
+    return;
   }
 
-  // Filter by word length
-  if (wordLength !== "any") {
-    ideas = ideas.filter(name => name.split(/(?=[A-Z])/).length == wordLength);
+  let names = [];
+  for (let i = 0; i < numNames; i++) {
+    let randomKeyword = keywords[Math.floor(Math.random() * keywords.length)].trim();
+    let suffixes = ["ify", "sy", "ly", "scape", "verse", "hub", "line", "point", "works", "genics"];
+    let randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+    let name = randomKeyword.charAt(0).toUpperCase() + randomKeyword.slice(1) + randomSuffix;
+    names.push(name);
   }
 
-  ideas.forEach(name => {
-    const div = document.createElement("div");
-    div.className = "result-item";
-    div.innerHTML = `
-      <span>${name}</span>
-      <a href="https://www.godaddy.com/en/domainsearch/find?checkAvail=1&tmskey=&domainToCheck=${name.toLowerCase()}.com" target="_blank">Check Domain</a>
-    `;
-    resultsDiv.appendChild(div);
-  });
+  let list = "<ul>";
+  names.forEach(n => list += `<li>${n}</li>`);
+  list += "</ul>";
+
+  resultsDiv.innerHTML = list;
 }
-
-generateBtn.addEventListener("click", generateNames);
