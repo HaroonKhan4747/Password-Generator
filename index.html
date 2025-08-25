@@ -3,77 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Name Generator</title>
+  <title>Smart Biz Names - Business Name Generator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Business Name Generator</h1>
-    <p>Generate unique, catchy, and professional business names instantly!</p>
+    <div class="container">
+      <h1>Smart Biz Names</h1>
+      <p>Your AI-powered Business Name Generator</p>
+    </div>
   </header>
 
-  <main>
-    <section class="generator">
-      <label for="keywords">Enter keywords:</label>
-      <input type="text" id="keywords" placeholder="e.g. tech, fashion, food">
-      
-      <label for="numNames">Number of names:</label>
-      <input type="number" id="numNames" value="10" min="1" max="50">
+  <main class="container">
+    <section class="generator-box">
+      <h2>Generate Your Business Name</h2>
 
-      <button onclick="generateNames()">Generate Names</button>
-      <div id="results"></div>
+      <!-- Input -->
+      <div class="form-group">
+        <label for="keywords">Enter Keywords:</label>
+        <input type="text" id="keywords" placeholder="e.g., tech, clothing, food">
+      </div>
+
+      <!-- Style Dropdown -->
+      <div class="form-group">
+        <label for="style">Choose Style:</label>
+        <select id="style">
+          <option value="trendy">Trendy</option>
+          <option value="professional">Professional</option>
+          <option value="creative">Creative</option>
+        </select>
+      </div>
+
+      <!-- Category Dropdown -->
+      <div class="form-group">
+        <label for="category">Choose Category:</label>
+        <select id="category">
+          <option value="general">General</option>
+          <option value="tech">Tech</option>
+          <option value="clothing">Clothing</option>
+          <option value="food">Food</option>
+          <option value="creative">Creative</option>
+          <option value="modern">Modern</option>
+        </select>
+      </div>
+
+      <!-- Word Length -->
+      <div class="form-group">
+        <label for="wordCount">Name Length:</label>
+        <select id="wordCount">
+          <option value="1">1 Word</option>
+          <option value="2">2 Words</option>
+          <option value="3">3 Words</option>
+        </select>
+      </div>
+
+      <button id="generateBtn">Generate Names</button>
     </section>
 
-    <section class="blog">
-      <h2>Branding Guide & Name Ideas (SEO)</h2>
-      <p>Choosing the right business name is the first step in building a strong brand identity. A memorable and professional name can set your company apart from the competition. Whether you’re starting a tech company, clothing brand, or food business, the right name creates lasting impressions.</p>
-      
-      <h3>On this page</h3>
-      <ul>
-        <li><a href="#why">Why a Business Name Matters</a></li>
-        <li><a href="#strategies">Naming Strategies That Work</a></li>
-        <li><a href="#ideas">Top 5 Tech Business Name Ideas</a></li>
-        <li><a href="#clothing">Top 5 Clothing Brand Name Ideas</a></li>
-        <li><a href="#faq">FAQs</a></li>
-      </ul>
-
-      <h3 id="why">Why a Business Name Matters</h3>
-      <p>Your business name is the foundation of your brand. It’s what people remember and how they find you online. A great name builds trust, credibility, and recognition.</p>
-
-      <h3 id="strategies">Naming Strategies That Work</h3>
-      <ul>
-        <li>Use simple and clear words.</li>
-        <li>Make it easy to spell and pronounce.</li>
-        <li>Ensure the domain name is available.</li>
-        <li>Reflect your niche or brand values.</li>
-      </ul>
-
-      <h3 id="ideas">Top 5 Tech Business Name Ideas</h3>
-      <ul>
-        <li>NextGen Solutions</li>
-        <li>Cloudify</li>
-        <li>CodeWave</li>
-        <li>Innovexa</li>
-        <li>DataZen</li>
-      </ul>
-
-      <h3 id="clothing">Top 5 Clothing Brand Name Ideas</h3>
-      <ul>
-        <li>Urban Vogue</li>
-        <li>StreetAura</li>
-        <li>Velour Lane</li>
-        <li>Trendara</li>
-        <li>ModeCraft</li>
-      </ul>
-
-      <h3 id="faq">FAQs</h3>
-      <p><b>Q: Can I use this tool for free?</b><br>Yes, it’s completely free to use.</p>
-      <p><b>Q: Will these names be unique?</b><br>We generate fresh ideas, but always check domain and trademark availability.</p>
+    <section class="results-box">
+      <h2>Generated Names</h2>
+      <ul id="results"></ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Business Name Generator | All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2025 Smart Biz Names. All Rights Reserved.</p>
+      <nav>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a> |
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
 
   <script src="script.js"></script>
