@@ -1,197 +1,197 @@
-/* ==========
-  Data: industries with parts per style
-  Each industry has arrays for prefixes, roots, and suffixes per style
-  (Short lists here but structured to expand easily)
-========== */
+/* ===========================
+   Industry Word Banks (Expanded)
+   Each industry has 4 styles with richer prefix/root/suffix lists
+   You can extend freely — generator scales automatically
+=========================== */
 
 const INDUSTRY_PARTS = {
   "Technology": {
     fun: {
-      prefixes:["Pixel","Nerd","Giga","Turbo","Zap","Quark","Robo","Hyper","Bit","Byte","Code","Nova","Neo","Spark"],
-      roots:["Logic","Rocket","Widget","Ninja","Buddy","Monkey","Gizmo","Wizard","Pilot","Pulse","Jolt","Zap"],
-      suffixes:["ify","ster","verse","lab","hub","pad","box","nest","dojo","wave","spark","loop","zone"]
+      prefixes:["Pixel","Nerd","Giga","Turbo","Zap","Quark","Robo","Hyper","Bit","Byte","Code","Nova","Neo","Spark","Proto","Glitch","Widget","Atom","Nano","Cloudy","Rocket"],
+      roots:["Logic","Rocket","Widget","Ninja","Buddy","Monkey","Gizmo","Wizard","Pilot","Pulse","Jolt","Switch","Kernel","Stack","Circuit","Beacon","Node","Engine","Matrix"],
+      suffixes:["ify","ster","verse","lab","hub","pad","box","nest","dojo","wave","spark","loop","zone","dock","craft","forge","shift","pilot","deck","grid"]
     },
     professional: {
-      prefixes:["Tech","Data","Cloud","Core","Prime","Apex","Vector","Quantum","Vertex","Solid","Secure","Fusion","Atlas","Blue"],
-      roots:["Systems","Analytics","Networks","Solutions","Consulting","Dynamics","Software","Digital","Compute","Insight","Grid"],
-      suffixes:["Labs","Works","Group","Partners","Global","Logic","Stack","Source","Bridge","Point","One"]
+      prefixes:["Tech","Data","Cloud","Core","Prime","Apex","Vector","Quantum","Vertex","Solid","Secure","Fusion","Atlas","Blue","Integral","Nimbus","Cobalt","Signal","Infini","Northern"],
+      roots:["Systems","Analytics","Networks","Solutions","Consulting","Dynamics","Software","Digital","Compute","Insight","Grid","Intelligence","Security","Platform","Ops","Infrastructure","Automation"],
+      suffixes:["Labs","Works","Group","Partners","Global","Logic","Stack","Source","Bridge","Point","One","Network","Holdings","Corporation","Associates","Technologies"]
     },
     trendy: {
-      prefixes:["Neo","Meta","Omni","Flux","Velo","Echo","Lyra","Kilo","Zeno","Wave","Cipher","Pixel","Nimbus"],
-      roots:["Chain","Verse","Shift","Forge","Ops","Node","Sphere","Bloom","Flow","Stack","Pulse","Spark"],
-      suffixes:["DAO","X","OS","HQ","HQ","Sync","Hub","Wave","Cloud","Link","Kit","Deck","Mint"]
+      prefixes:["Neo","Meta","Omni","Flux","Velo","Echo","Lyra","Kilo","Zeno","Wave","Cipher","Nimbus","Aero","Vanta","Mono","Aether","Kinetic","Helio","Kairo","Volt"],
+      roots:["Chain","Verse","Shift","Forge","Ops","Node","Sphere","Bloom","Flow","Stack","Pulse","Spark","Grid","Core","Deck","Hub","Mint","Frame","Sync"],
+      suffixes:["DAO","X","OS","HQ","Sync","Hub","Wave","Cloud","Link","Kit","Deck","Mint","One","Lab","Core"]
     },
     elegant: {
-      prefixes:["Luxe","Aure","Silk","Ivory","Opal","Cobalt","Onyx","Velvet","Royal","Sable","Verity","Prism","Aria"],
-      roots:["Technologies","Ventures","Capital","Studios","Holdings","Design","Collective","Atelier","Maison","Bureau"],
-      suffixes:["& Co."," Group"," Studio"," Collective"," Maison"," Atelier"," Works"," House"," Capital"," Partners"]
+      prefixes:["Luxe","Aure","Silk","Ivory","Opal","Cobalt","Onyx","Velvet","Royal","Sable","Verity","Prism","Aria","Aurora","Solace","Noble","Sable","Regency"],
+      roots:["Technologies","Ventures","Capital","Studios","Holdings","Design","Collective","Atelier","Maison","Bureau","Consulting","Partners"],
+      suffixes:[" & Co."," Group"," Studio"," Collective"," Maison"," Atelier"," Works"," House"," Capital"," Partners"," Holdings"]
     }
   },
 
   "Clothing / Fashion": {
     fun:{
-      prefixes:["Chill","Happy","Urban","Sunny","Retro","Funky","Cosmo","Lucky","Buzzy","Vibe","Street"],
-      roots:["Bear","Fox","Wave","Flare","Beat","Bloom","Thread","Stitch","Hype","Drip","Vogue","Denim"],
-      suffixes:[" Club"," Crew"," Lab"," House"," Hive"," Spot"," Squad"," Hub"," Co."," Works"]
+      prefixes:["Chill","Happy","Urban","Sunny","Retro","Funky","Cosmo","Lucky","Buzzy","Vibe","Street","Fresh","Hype","Groove","Crisp"],
+      roots:["Bear","Fox","Wave","Flare","Beat","Bloom","Thread","Stitch","Hype","Drip","Vogue","Denim","Weave","Label","Knit"],
+      suffixes:[" Club"," Crew"," Lab"," House"," Hive"," Spot"," Squad"," Hub"," Co."," Works"," Studio"," Shop"]
     },
     professional:{
-      prefixes:["Urban","Prime","Royal","Classic","Modern","Nord","Crown","Ivory","Velour","Silhouette","Atelier"],
-      roots:["Apparel","Outfitters","Tailors","Collective","Thread","Couture","Wardrobe","Label","Design"],
-      suffixes:[" Co."," Studio"," Group"," Atelier"," Maison"," Works"," House"]
+      prefixes:["Urban","Prime","Royal","Classic","Modern","Nord","Crown","Ivory","Velour","Silhouette","Atelier","Heritage","Maison","Regal"],
+      roots:["Apparel","Outfitters","Tailors","Collective","Thread","Couture","Wardrobe","Label","Design","Atelier"],
+      suffixes:[" Co."," Studio"," Group"," Atelier"," Maison"," Works"," House"," London"," Milano"]
     },
     trendy:{
-      prefixes:["Neo","Aero","Nova","Vanta","Mono","Kith","Aether","Void","Kulture","Hype","Drip","Wave"],
-      roots:["Street","Supply","Collective","Archive","Lab","Unit","Threads","Club","Edition","Project"],
-      suffixes:[" Co"," Lab"," Works"," HQ"," Studio"," Supply"," Core"]
+      prefixes:["Neo","Aero","Nova","Vanta","Mono","Kith","Aether","Void","Kulture","Drip","Wave","Archive","Studio","Civil","Karma"],
+      roots:["Street","Supply","Collective","Archive","Lab","Unit","Threads","Club","Edition","Project","Division"],
+      suffixes:[" Co"," Lab"," Works"," HQ"," Studio"," Supply"," Core"," Dept."]
     },
     elegant:{
-      prefixes:["Luxe","Serene","Opal","Silk","Sable","Maison","Ciel","Noir","Aria","Velvet","Fleur","Ivory"],
-      roots:["Couture","Atelier","Maison","Label","Silhouette","Tailoring","Bespoke","Wardrobe"],
-      suffixes:[" & Co."," Atelier"," Maison"," Studio"," House"," London"," Paris"," Milano"]
+      prefixes:["Luxe","Serene","Opal","Silk","Sable","Maison","Ciel","Noir","Aria","Velvet","Fleur","Ivory","Étoile","Belle"],
+      roots:["Couture","Atelier","Maison","Label","Silhouette","Tailoring","Bespoke","Wardrobe","Haute"],
+      suffixes:[" & Co."," Atelier"," Maison"," Studio"," House"," Paris"," Milano"]
     }
   },
 
   "Food & Beverage": {
     fun:{
-      prefixes:["Snack","Chow","Yum","Spice","Zesty","Munch","Noodle","Bubble","Juicy","Toasty","Chewy"],
-      roots:["Box","Bowl","Bites","Delight","Crave","Crush"," Feast","Grill","Kitchen","Cafe","Scoops"],
-      suffixes:[" Hub"," Club"," Cart"," Spot"," Shack"," Works"," Lab"," House"]
+      prefixes:["Snack","Chow","Yum","Spice","Zesty","Munch","Noodle","Bubble","Juicy","Toasty","Chewy","Tasty","Crunch","Sizzle"],
+      roots:["Box","Bowl","Bites","Delight","Crave","Crush","Feast","Grill","Kitchen","Cafe","Scoops","Pantry","Fork"],
+      suffixes:[" Hub"," Club"," Cart"," Spot"," Shack"," Works"," Lab"," House"," Bar"," Deli"]
     },
     professional:{
-      prefixes:["Prime","Harvest","Golden","Oak","River","Summit","Cedar","Blue","Crown","Atlas"],
-      roots:["Provisions","Kitchen","Catering","Gourmet","Bakery","Roastery","Beverage","Foods","Dining"],
-      suffixes:[" Co."," Group"," House"," Kitchen"," Works"," Collective"," Market"]
+      prefixes:["Prime","Harvest","Golden","Oak","River","Summit","Cedar","Blue","Crown","Atlas","Stone","Hearth","Valley"],
+      roots:["Provisions","Kitchen","Catering","Gourmet","Bakery","Roastery","Beverage","Foods","Dining","Cellar"],
+      suffixes:[" Co."," Group"," House"," Kitchen"," Works"," Collective"," Market"," Table"]
     },
     trendy:{
-      prefixes:["Urban","Artisan","Craft","Modern","Wild","Ferment","Keto","Vegan","Plant","Stone","Flame"],
-      roots:["Eatery","Deli","Lab","Bar","Micro","Press","Ferments","Grains","Grind","Crumb","Sip"],
-      suffixes:[" Lab"," Bar"," Works"," Room"," Collective"," Co"," Project"]
+      prefixes:["Urban","Artisan","Craft","Modern","Wild","Ferment","Keto","Vegan","Plant","Stone","Flame","Noble","Street"],
+      roots:["Eatery","Deli","Lab","Bar","Micro","Press","Ferments","Grains","Grind","Crumb","Sip","Brew","Smoke"],
+      suffixes:[" Lab"," Bar"," Works"," Room"," Collective"," Co"," Project"," House"]
     },
     elegant:{
-      prefixes:["Maison","Ciel","Fleur","Savoy","Verde","Luna","Aurea","Noir","Velour","Gilded"],
-      roots:["Dining","Brasserie","Patisserie","Gastronomy","Cellar","Kitchen","Table","Cuisine"],
-      suffixes:[" & Co."," Maison"," Atelier"," Cellar"," Table"," House"]
+      prefixes:["Maison","Ciel","Fleur","Savoy","Verde","Luna","Aurea","Noir","Velour","Gilded","Alba","Rosé"],
+      roots:["Dining","Brasserie","Patisserie","Gastronomy","Cellar","Kitchen","Table","Cuisine","Bistro"],
+      suffixes:[" & Co."," Maison"," Atelier"," Cellar"," Table"," House"," Salon"]
     }
   },
 
   "Health & Fitness": {
     fun:{
-      prefixes:["Fit","Flex","Bounce","Happy","Go","Vibe","Zen","Pulse","Power","Vital","Joy"],
-      roots:["Squad","Lab","Crew","Camp","Boost","Fuel","Forge","Motion","Zone","Tribe"],
-      suffixes:[" Hub"," Club"," Works"," Studio"," House"," Dojo"," Lab"]
+      prefixes:["Fit","Flex","Bounce","Happy","Go","Vibe","Zen","Pulse","Power","Vital","Joy","Glow","Move"],
+      roots:["Squad","Lab","Crew","Camp","Boost","Fuel","Forge","Motion","Zone","Tribe","Flow"],
+      suffixes:[" Hub"," Club"," Works"," Studio"," House"," Dojo"," Lab"," Room"]
     },
     professional:{
-      prefixes:["Prime","Core","Total","Elite","Peak","Summit","Pure","Vital","Atlas","Unity"],
-      roots:["Wellness","Fitness","Therapy","Clinic","Performance","Rehab","Nutrition","Care"],
-      suffixes:[" Center"," Group"," Partners"," Health"," Clinic"," Studio"]
+      prefixes:["Prime","Core","Total","Elite","Peak","Summit","Pure","Vital","Atlas","Unity","Integral","True"],
+      roots:["Wellness","Fitness","Therapy","Clinic","Performance","Rehab","Nutrition","Care","Health"],
+      suffixes:[" Center"," Group"," Partners"," Health"," Clinic"," Studio"," Institute"]
     },
     trendy:{
-      prefixes:["Ath","Hypr","Meta","Velo","Strive","Aero","Voy","Forma","Kinetic","Motive"],
-      roots:["Lab","Works","Collective","Athletica","Method","Project","Club","Unit"],
-      suffixes:[" Lab"," Co"," Club"," Method"," Studio"," Works"]
+      prefixes:["Ath","Hypr","Meta","Velo","Strive","Aero","Voy","Forma","Kinetic","Motive","Volt","Pulse"],
+      roots:["Lab","Works","Collective","Athletica","Method","Project","Club","Unit","Program"],
+      suffixes:[" Lab"," Co"," Club"," Method"," Studio"," Works"," System"]
     },
     elegant:{
-      prefixes:["Serene","Ivory","Opal","Aurum","Verdant","Haven","Eden","Aegis","Nova"],
-      roots:["Wellness","Therapy","Athletics","Pilates","Yoga","Retreat","Clinic"],
-      suffixes:[" & Co."," Studio"," House"," Collective"," Center"]
+      prefixes:["Serene","Ivory","Opal","Aurum","Verdant","Haven","Eden","Aegis","Nova","Solace"],
+      roots:["Wellness","Therapy","Athletics","Pilates","Yoga","Retreat","Clinic","Health"],
+      suffixes:[" & Co."," Studio"," House"," Collective"," Center"," Atelier"]
     }
   },
 
   "Beauty & Personal Care": {
     fun:{
-      prefixes:["Glow","Blush","Lush","Pep","Glam","Pop","Shine","Zest","Fresh","Happy"],
-      roots:["Box","Lab","Bar","Room","Nest","Bloom","Studio","Mix","Nook"],
-      suffixes:[" Hub"," Club"," Works"," Co"," Lab"," Lounge"]
+      prefixes:["Glow","Blush","Lush","Pep","Glam","Pop","Shine","Zest","Fresh","Happy","Sugar","Dew"],
+      roots:["Box","Lab","Bar","Room","Nest","Bloom","Studio","Mix","Nook","Glow","Fix"],
+      suffixes:[" Hub"," Club"," Works"," Co"," Lab"," Lounge"," Studio"]
     },
     professional:{
-      prefixes:["Pure","Prime","Derm","Aesthetic","Signature","Ivory","Velvet","Silk","Elite"],
-      roots:["Skincare","Cosmetics","Salon","Clinic","Aesthetics","Beauty","Cosmetica"],
-      suffixes:[" Studio"," Clinic"," Center"," Group"," House"," Collective"]
+      prefixes:["Pure","Prime","Derm","Aesthetic","Signature","Ivory","Velvet","Silk","Elite","Heritage"],
+      roots:["Skincare","Cosmetics","Salon","Clinic","Aesthetics","Beauty","Cosmetica","Derm"],
+      suffixes:[" Studio"," Clinic"," Center"," Group"," House"," Collective"," Lab"]
     },
     trendy:{
-      prefixes:["Nova","Vanta","Lumi","Aether","Monochrome","Aura","Klar","Nude","Opal"],
-      roots:["Beauty","Skin","Glow","Cosmetix","Lab","Atelier","Collective","Parlor"],
-      suffixes:[" Lab"," Co"," Studio"," House"," Club"," Edit"]
+      prefixes:["Nova","Vanta","Lumi","Aether","Aura","Klar","Nude","Opal","Chroma","Halo","Vivid"],
+      roots:["Beauty","Skin","Glow","Cosmetix","Lab","Atelier","Collective","Parlor","Edit","Care"],
+      suffixes:[" Lab"," Co"," Studio"," House"," Club"," Edit"," Works"]
     },
     elegant:{
-      prefixes:["Maison","Fleur","Sable","Noir","Velour","Ciel","Luna","Seraph","Aurelia"],
-      roots:["Beauté","Atelier","Maison","Parfum","Salon","Esthétique"],
-      suffixes:[" Paris"," Atelier"," Maison"," & Co."," Studio"]
+      prefixes:["Maison","Fleur","Sable","Noir","Velour","Ciel","Luna","Seraph","Aurelia","Éclat"],
+      roots:["Beauté","Atelier","Maison","Parfum","Salon","Esthétique","Cosmétiques"],
+      suffixes:[" Paris"," Atelier"," Maison"," & Co."," Studio"," Maison"]
     }
   },
 
   "Finance & Business Services": {
     fun:{
-      prefixes:["Mint","Cash","Coin","Penny","Sprout","Nest","Bee","Happy","Sunny"],
-      roots:["Jar","Box","Hive","Vault","Buddy","Boost","Flow","Fund"],
-      suffixes:[" Hub"," Club"," Co"," Lab"," Works"]
+      prefixes:["Mint","Cash","Coin","Penny","Sprout","Nest","Happy","Sunny","Ledger"],
+      roots:["Jar","Box","Hive","Vault","Buddy","Boost","Flow","Fund","Stack"],
+      suffixes:[" Hub"," Club"," Co"," Lab"," Works"," Box"]
     },
     professional:{
-      prefixes:["Prime","Summit","Sterling","BlueRock","Crest","Atlas","Oak","Bridge","Harbor","Pinnacle"],
-      roots:["Capital","Advisors","Partners","Consulting","Accountancy","Wealth","Finance","Holdings"],
-      suffixes:[" Group"," Partners"," Capital"," Advisory"," LLP"," Associates"]
+      prefixes:["Prime","Summit","Sterling","BlueRock","Crest","Atlas","Oak","Bridge","Harbor","Pinnacle","Cedar","Crown"],
+      roots:["Capital","Advisors","Partners","Consulting","Accountancy","Wealth","Finance","Holdings","Group"],
+      suffixes:[" Group"," Partners"," Capital"," Advisory"," LLP"," Associates"," Management"]
     },
     trendy:{
-      prefixes:["Quantum","Crypto","Alpha","Beta","Lambda","Venture","Echo","Pilot","Zeno"],
-      roots:["Ledger","Vault","Stack","Flow","Labs","Fund","Yield","Chain"],
-      suffixes:[" Labs"," DAO"," X"," Hub"," OS"," One"]
+      prefixes:["Quantum","Crypto","Alpha","Beta","Lambda","Venture","Echo","Pilot","Zeno","Vector","Flux"],
+      roots:["Ledger","Vault","Stack","Flow","Labs","Fund","Yield","Chain","Index","Desk"],
+      suffixes:[" Labs"," DAO"," X"," Hub"," OS"," One"," Co"]
     },
     elegant:{
-      prefixes:["Aureus","Sable","Ivory","Regal","Crown","Veritas","Horizon","Monarch"],
-      roots:["Capital","Private","Partners","Wealth","Advisory","Holdings","Estates"],
-      suffixes:[" Group"," Partners"," Capital"," & Co."," Trust"]
+      prefixes:["Aureus","Sable","Ivory","Regal","Crown","Veritas","Horizon","Monarch","Solace","Providence"],
+      roots:["Capital","Private","Partners","Wealth","Advisory","Holdings","Estates","Trust"],
+      suffixes:[" Group"," Partners"," Capital"," & Co."," Trust"," Associates"]
     }
   },
 
   "Real Estate": {
     fun:{
-      prefixes:["Happy","Nest","Sunny","Blue","Cosy","Urban","Pine","Maple"],
-      roots:["Homes","Haven","Dwell","Pad","Porch","Keys","Corner","Nook"],
-      suffixes:[" Hub"," Co"," Works"," Club"," Place"," Point"]
+      prefixes:["Happy","Nest","Sunny","Blue","Cosy","Urban","Pine","Maple","Bright"],
+      roots:["Homes","Haven","Dwell","Pad","Porch","Keys","Corner","Nook","Nest"],
+      suffixes:[" Hub"," Co"," Works"," Club"," Place"," Point"," Spot"]
     },
     professional:{
-      prefixes:["Prime","Summit","Harbor","Sterling","North","Cedar","Pinnacle","Crest"],
-      roots:["Realty","Estates","Properties","Group","Holdings","Advisors","Capital"],
-      suffixes:[" Group"," Partners"," Realty"," Estates"," Capital"," Advisors"]
+      prefixes:["Prime","Summit","Harbor","Sterling","North","Cedar","Pinnacle","Crest","Anchor","Granite"],
+      roots:["Realty","Estates","Properties","Group","Holdings","Advisors","Capital","Partners"],
+      suffixes:[" Group"," Partners"," Realty"," Estates"," Capital"," Advisors"," Collective"]
     },
     trendy:{
-      prefixes:["Urban","Metro","Loft","Axis","Nova","Vertex","Mono","Vista"],
-      roots:["Collective","Spaces","Studio","Atlas","Grid","Block","Core"],
-      suffixes:[" Lab"," Works"," Co"," HQ"," Hub"," Studio"]
+      prefixes:["Urban","Metro","Loft","Axis","Nova","Vertex","Mono","Vista","Core","Grid"],
+      roots:["Collective","Spaces","Studio","Atlas","Grid","Block","Core","Works","Unit"],
+      suffixes:[" Lab"," Works"," Co"," HQ"," Hub"," Studio"," House"]
     },
     elegant:{
-      prefixes:["Regency","Ivory","Opal","Sable","Verity","Aurora","Maison"],
-      roots:["Estates","Manor","Residences","Maison","Atelier","Bespoke"],
-      suffixes:[" & Co."," Group"," Maison"," Atelier"," House"]
+      prefixes:["Regency","Ivory","Opal","Sable","Verity","Aurora","Maison","Crown","Noble"],
+      roots:["Estates","Manor","Residences","Maison","Atelier","Bespoke","Properties"],
+      suffixes:[" & Co."," Group"," Maison"," Atelier"," House"," Realty"]
     }
   },
 
   "Ecommerce / Dropshipping": {
-    fun:{ prefixes:["Shop","Click","Happy","Buzz","Zippy","Box","Swift"], roots:["Cart","Hub","Hive","Crate","Bay","Nest","Spot"], suffixes:[" Shop"," Hub"," Co"," Zone"," Bay"," Lab"] },
-    professional:{ prefixes:["Global","Prime","Atlas","Summit","Pioneer","Blue"], roots:["Commerce","Supply","Fulfillment","Retail","Logistics","Outlet"], suffixes:[" Group"," Global"," Partners"," Co"," Works"] },
-    trendy:{ prefixes:["Drop","Nova","Flux","Mono","Omni","Quick","Hyper"], roots:["Supply","Lane","Loop","Dash","Flow","Market","Core"], suffixes:[" Lab"," X"," Hub"," HQ"," OS"," One"] },
-    elegant:{ prefixes:["Velour","Ivory","Noir","Opal","Sable"], roots:["Boutique","Maison","Atelier","Collective","Curations"], suffixes:[" & Co."," Atelier"," Maison"," Studio"," House"] }
+    fun:{ prefixes:["Shop","Click","Happy","Buzz","Zippy","Box","Swift","Easy","Swiftly"], roots:["Cart","Hub","Hive","Crate","Bay","Nest","Spot","Mart"], suffixes:[" Shop"," Hub"," Co"," Zone"," Bay"," Lab"," Market"] },
+    professional:{ prefixes:["Global","Prime","Atlas","Summit","Pioneer","Blue","Cedar","Anchor"], roots:["Commerce","Supply","Fulfillment","Retail","Logistics","Outlet","Trading"], suffixes:[" Group"," Global"," Partners"," Co"," Works"," Network"] },
+    trendy:{ prefixes:["Drop","Nova","Flux","Mono","Omni","Quick","Hyper","Dash","Loop"], roots:["Supply","Lane","Loop","Dash","Flow","Market","Core","Deck"], suffixes:[" Lab"," X"," Hub"," HQ"," OS"," One"," Cloud"] },
+    elegant:{ prefixes:["Velour","Ivory","Noir","Opal","Sable","Maison"], roots:["Boutique","Maison","Atelier","Collective","Curations","Emporium"], suffixes:[" & Co."," Atelier"," Maison"," Studio"," House"," Collective"] }
   },
 
   "Pets & Animals": {
-    fun:{ prefixes:["Paw","Purr","Woof","Fuzzy","Happy","Lucky","Sunny"], roots:["Box","Barn","Buddy","Den","Nook","Nest","Coop"], suffixes:[" Hub"," Club"," Co"," Works"," House"] },
-    professional:{ prefixes:["Prime","Unity","Care","Healthy","Blue"], roots:["Veterinary","Grooming","PetCare","Wellness","Clinic","Rescue"], suffixes:[" Center"," Clinic"," Group"," Partners"] },
-    trendy:{ prefixes:["Urban","Neo","Aero","Mono","Vibe"], roots:["Pet","Pack","Collective","Lab","Unit"], suffixes:[" Lab"," Club"," Co"," Works"] },
-    elegant:{ prefixes:["Regal","Noble","Ivory","Velvet"], roots:["Kennels","Cattery","Estates","Atelier"], suffixes:[" & Co."," House"," Manor"," Studio"] }
+    fun:{ prefixes:["Paw","Purr","Woof","Fuzzy","Happy","Lucky","Sunny","Bark"], roots:["Box","Barn","Buddy","Den","Nook","Nest","Coop","Corner"], suffixes:[" Hub"," Club"," Co"," Works"," House"," Spot"] },
+    professional:{ prefixes:["Prime","Unity","Care","Healthy","Blue","Gentle"], roots:["Veterinary","Grooming","PetCare","Wellness","Clinic","Rescue","Hospital"], suffixes:[" Center"," Clinic"," Group"," Partners"," Care"] },
+    trendy:{ prefixes:["Urban","Neo","Aero","Mono","Vibe","Alpha"], roots:["Pet","Pack","Collective","Lab","Unit","Crew"], suffixes:[" Lab"," Club"," Co"," Works"," House"] },
+    elegant:{ prefixes:["Regal","Noble","Ivory","Velvet","Crown"], roots:["Kennels","Cattery","Estates","Atelier","Manor"], suffixes:[" & Co."," House"," Manor"," Studio"," Lodge"] }
   },
 
   "Education": {
-    fun:{ prefixes:["Learn","Brainy","Happy","Smarty","Bright"], roots:["Box","Lab","Club","Camp","Hive","Spot"], suffixes:[" Hub"," Club"," Lab"," Works"," House"] },
-    professional:{ prefixes:["Prime","Core","Summit","Schola","Academia"], roots:["Academy","Institute","Tutors","Learning","Scholars","Prep"], suffixes:[" Academy"," Institute"," Group"," Center"] },
-    trendy:{ prefixes:["Neo","Meta","Aero","Kinetic","Velo"], roots:["Learn","Labs","Collective","Unit","Stack"], suffixes:[" Lab"," Co"," Studio"," Works"] },
-    elegant:{ prefixes:["Aureus","Veritas","Regent","Ivory"], roots:["Academy","Scholarium","Lyceum","Schola"], suffixes:[" & Co."," Institute"," House"," Collegium"] }
+    fun:{ prefixes:["Learn","Brainy","Happy","Smarty","Bright","Study","Skill"], roots:["Box","Lab","Club","Camp","Hive","Spot","Room"], suffixes:[" Hub"," Club"," Lab"," Works"," House"," Studio"] },
+    professional:{ prefixes:["Prime","Core","Summit","Schola","Academia","Legacy","Pioneer"], roots:["Academy","Institute","Tutors","Learning","Scholars","Prep","College"], suffixes:[" Academy"," Institute"," Group"," Center"," School"] },
+    trendy:{ prefixes:["Neo","Meta","Aero","Kinetic","Velo","Next","Nano"], roots:["Learn","Labs","Collective","Unit","Stack","Sprint"], suffixes:[" Lab"," Co"," Studio"," Works"," Program"] },
+    elegant:{ prefixes:["Aureus","Veritas","Regent","Ivory","Noble","Heritage"], roots:["Academy","Scholarium","Lyceum","Schola","Conservatory"], suffixes:[" & Co."," Institute"," House"," Collegium"," School"] }
   }
 };
 
-// Flat list for the selector
+// Flat list for selector
 const INDUSTRY_LIST = Object.keys(INDUSTRY_PARTS);
 
-// DOM
+// DOM refs
 const industrySearch = document.getElementById('industrySearch');
 const industrySelect = document.getElementById('industrySelect');
 const styleSelect = document.getElementById('styleSelect');
@@ -202,7 +202,15 @@ const resultsEl = document.getElementById('results');
 const copyAllBtn = document.getElementById('copyAllBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 
-// Populate industry select
+// Mobile nav toggle
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mainNav = document.getElementById('mainNav');
+hamburgerBtn.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+
+// Populate industries
 function populateIndustrySelect(filter = "") {
   industrySelect.innerHTML = "";
   const normalized = filter.trim().toLowerCase();
@@ -217,23 +225,22 @@ function populateIndustrySelect(filter = "") {
 }
 populateIndustrySelect();
 
-// Search typing filters the list
+// Search typing filters list
 industrySearch.addEventListener('input', (e) => {
   populateIndustrySelect(e.target.value);
 });
 
-// If user clicks an option, mirror into search box (for clarity)
+// Mirror choice into search box
 industrySelect.addEventListener('change', () => {
   const val = industrySelect.value || "";
   if (val) industrySearch.value = val;
 });
 
-// Utility
+// Utils
 const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
 function toTitleCase(str){ return str.replace(/\b\w/g, c => c.toUpperCase()); }
 function joinCompact(parts){ return parts.filter(Boolean).join(" "); }
 function coinSingleWord(p,r,s){
-  // For one-word, sometimes glue without space; sometimes camel-case
   const styles = [
     () => (p + r),
     () => (r + s),
@@ -246,7 +253,7 @@ function coinSingleWord(p,r,s){
     .replace(/[-]{2,}/g,"-");
 }
 
-// Build a name with style rules
+// Build a name
 function buildName(industry, style, words){
   const pack = INDUSTRY_PARTS[industry]?.[style];
   if (!pack) return "BrandName";
@@ -260,14 +267,12 @@ function buildName(industry, style, words){
   }
 
   if (words === 2){
-    // Prefer Prefix + Root, or Root + Suffix (worded)
-    const form = Math.random() < 0.5
+    const form = Math.random() < 0.6
       ? [rand(prefixes), rand(roots)]
       : [rand(roots), rand(suffixes)];
     return toTitleCase(joinCompact(form));
   }
 
-  // words === 3
   const form = [rand(prefixes), rand(roots), rand(suffixes)];
   return toTitleCase(joinCompact(form));
 }
@@ -307,12 +312,11 @@ generateBtn.addEventListener('click', () => {
   const words = parseInt(wordCountSelect.value, 10);
   const qty = parseInt(quantitySelect.value, 10);
 
-  // Guard: If user typed a custom not-in-list industry, fallback to Technology
   const industry = INDUSTRY_PARTS[chosenIndustry] ? chosenIndustry : "Technology";
 
   const set = new Set();
   let safety = 0;
-  while(set.size < qty && safety < qty * 20){
+  while(set.size < qty && safety < qty * 30){
     const candidate = buildName(industry, style, words);
     set.add(candidate);
     safety++;
@@ -357,6 +361,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Initial state: pick Technology by default
+// Defaults
 industrySelect.value = "Technology";
 industrySearch.value = "Technology";
