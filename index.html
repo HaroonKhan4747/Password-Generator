@@ -1,332 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Business Name Generator – Free, Creative & Catchy Ideas (AI-style)</title>
-  <meta name="description" content="Free business name generator. Get creative, catchy business name ideas by industry and style. Copy all, download .txt, and explore FAQs + blog.">
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Business Name Generator – Free, Creative & Catchy Ideas (AI-style)">
-  <meta property="og:description" content="Generate free business name ideas instantly. Choose industry, style, and word count. Copy or download your list.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://dummyimage.com/1200x630/1a73e8/ffffff&text=Business+Name+Generator">
-
-  <!-- FAQ Schema (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Is this a free business name generator?","acceptedAnswer":{"@type":"Answer","text":"Yes. This is a free business name generator. Create lists of names, copy them, or download a .txt file without logging in."}},
-      {"@type":"Question","name":"How does the generator work?","acceptedAnswer":{"@type":"Answer","text":"We combine curated prefixes, roots, and suffixes per industry and style to create brandable, catchy names, similar to an AI name generator."}},
-      {"@type":"Question","name":"Can I use these names commercially?","acceptedAnswer":{"@type":"Answer","text":"You can use the ideas, but always check trademarks, business registries, and domain availability first."}},
-      {"@type":"Question","name":"What styles can I choose?","acceptedAnswer":{"@type":"Answer","text":"Fun, Professional, Trendy, and Elegant. You can also set 1, 2, or 3 words and generate 2–50 names at a time."}},
-      {"@type":"Question","name":"Do you have the best tech and clothing brand name ideas?","acceptedAnswer":{"@type":"Answer","text":"Yes—see the FAQ section for the best 5 names per industry like Tech, Clothing, Food, Fitness, and Creative."}}
-    ]
-  }
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free AI Business Name Generator - Generate creative, catchy, and professional company names instantly. Perfect for startups, clothing brands, tech companies, and more.">
+  <meta name="keywords" content="business generator name, business name generator, business name generators, business names generator, company generator name, AI name generator free, catchy name generator, creative business name generator">
+  <title>AI Business Name Generator | Free Company Names</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-wrap">
-      <a href="#home" class="logo">Business<span>Name</span>Generator</a>
-
-      <nav class="nav" id="mainNav">
-        <a href="#home" class="active">Home</a>
-        <a href="#faqs">FAQs</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-        <a href="#privacy">Privacy</a>
-      </nav>
-
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- Ad (Top Banner) -->
-    <div class="container ad ad-top" aria-label="advertisement">
-      <div class="ad-box">Ad Space (Top Banner)</div>
-    </div>
+  <!-- Header / Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">BizNameGen</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-terms.html">Privacy & Terms</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
   </header>
 
-  <main id="home">
-    <!-- Hero -->
-    <section class="hero container">
-      <h1>Free Business Name Generator</h1>
-      <p class="sub">
-        Choose industry, style, and word count. Generate <strong>2–50</strong> names instantly — copy or download.
-      </p>
-    </section>
+  <!-- Adsense Banner Top -->
+  <div class="ads-banner">[Top AdSense Banner Placeholder]</div>
 
-    <!-- Tool -->
-    <section class="tool container card">
-      <div class="controls">
-        <div class="field">
-          <label for="industrySearch">Industry</label>
-          <input id="industrySearch" type="text" placeholder="Search industries (e.g., Tech, Clothing, Fitness)…" autocomplete="off">
-          <select id="industrySelect" size="8" aria-label="Industry list"></select>
-          <small class="muted">Tip: type to filter, then click an industry above. If you don’t select, it defaults to Technology.</small>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Free AI Business Name Generator</h1>
+    <p>Generate thousands of creative, catchy, and professional company names instantly with AI.</p>
+  </section>
 
-        <div class="row">
-          <div class="field">
-            <label for="styleSelect">Style</label>
-            <select id="styleSelect">
-              <option value="fun">Fun</option>
-              <option value="professional" selected>Professional</option>
-              <option value="trendy">Trendy</option>
-              <option value="elegant">Elegant</option>
-            </select>
-          </div>
+  <!-- Generator Section -->
+  <section class="generator">
+    <h2>Generate Business Names</h2>
+    <label for="prefix">Prefix:</label>
+    <input type="text" id="prefix" placeholder="Enter a prefix (optional)">
+    
+    <label for="suffix">Suffix:</label>
+    <input type="text" id="suffix" placeholder="Enter a suffix (optional)">
+    
+    <label for="nameCount">Number of Names:</label>
+    <select id="nameCount">
+      <option value="2">2</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+      <option value="40">40</option>
+      <option value="50">50</option>
+    </select>
+    
+    <button onclick="generateNames()">Generate</button>
+    <button onclick="copyAll()">Copy All</button>
+    
+    <div id="results"></div>
+  </section>
 
-          <div class="field">
-            <label for="wordCountSelect">Word Count</label>
-            <select id="wordCountSelect">
-              <option value="1">One word</option>
-              <option value="2" selected>Two words</option>
-              <option value="3">Three words</option>
-            </select>
-          </div>
+  <!-- Adsense Banner Mid -->
+  <div class="ads-banner">[Mid-Content AdSense Banner Placeholder]</div>
 
-          <div class="field">
-            <label for="quantitySelect">How many names?</label>
-            <select id="quantitySelect">
-              <option value="2">2</option>
-              <option value="5">5</option>
-              <option value="10" selected>10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-              <option value="40">40</option>
-              <option value="50">50</option>
-            </select>
-          </div>
-        </div>
+  <!-- Blog Section -->
+  <section class="blog">
+    <h2>Business Name Ideas & AI Generator Tips</h2>
+    <p>Finding the right name is crucial. Our <strong>AI business name generator</strong> provides unique, creative, and professional options. Whether you need <strong>business name ideas</strong> for a tech startup, clothing brand, or small business, our <strong>free business name generator</strong> is the best place to start.</p>
+    <p>We focus on SEO-friendly naming strategies so your <strong>company name</strong> not only looks good but also ranks well. This <strong>creative business name generator</strong> combines AI intelligence with marketing insights to give you powerful brand ideas.</p>
+    <p>With our tool, you can create <strong>catchy names</strong>, generate <strong>1000 company names</strong>, and explore endless combinations. If you’re searching for the ultimate <strong>AI name generator free</strong>, you’ve found it.</p>
 
-        <div class="actions center">
-          <button id="generateBtn" class="btn btn-primary">Generate Names</button>
-          <button id="copyAllBtn" class="btn btn-secondary">Copy All</button>
-          <button id="downloadBtn" class="btn btn-outline">Download .txt</button>
-        </div>
-      </div>
+    <!-- Placeholder for charts / stats -->
+    <div class="chart-placeholder">[ Add your charts/images about why business names matter here ]</div>
+  </section>
 
-      <!-- In-content Ad -->
-      <div class="ad ad-mid" aria-label="advertisement">
-        <div class="ad-box">Ad Space (In-Content)</div>
-      </div>
+  <!-- Adsense Banner Blog -->
+  <div class="ads-banner">[Blog AdSense Banner Placeholder]</div>
 
-      <div id="results" class="results-grid" aria-live="polite"></div>
-    </section>
-
-    <!-- FAQs -->
-    <section id="faqs" class="container card">
-      <h2 class="center">Business Name Generator FAQs</h2>
-
-      <div class="faq">
-        <button class="faq-q">What is a Business Name Generator (AI-style)?</button>
-        <div class="faq-a">
-          <p>
-            A <strong>business name generator AI</strong> (or AI-style generator) mixes curated
-            <em>prefixes, roots, and suffixes</em> to produce creative, brandable ideas fast.
-            This tool works like an <strong>AI name generator free</strong> — no login required.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-q">How do I get the best business name ideas?</button>
-        <div class="faq-a">
-          <p>
-            Try switching industries and styles (Fun, Professional, Trendy, Elegant),
-            change the word count (1–3), and generate up to 50 names at once.
-            Our <strong>free business name generator</strong> is built for speed and variety.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-q">Best Tech Business Names (Top 5)</button>
-        <div class="faq-a">
-          <ul class="best-list">
-            <li>Nexora Labs</li>
-            <li>Quantum Stack</li>
-            <li>CloudForge</li>
-            <li>PixelWorks</li>
-            <li>Innovexa</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-q">Best Clothing Brand Names (Top 5)</button>
-        <div class="faq-a">
-          <ul class="best-list">
-            <li>Urban Stitch</li>
-            <li>Thread Theory</li>
-            <li>Drip Collective</li>
-            <li>Velvet Maison</li>
-            <li>Street Archive</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-q">Best Food & Beverage Names (Top 5)</button>
-        <div class="faq-a">
-          <ul class="best-list">
-            <li>Harvest Kitchen</li>
-            <li>Craft Cellar</li>
-            <li>Urban Eatery</li>
-            <li>Zesty Bowl</li>
-            <li>Maison Savoy</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-q">Best Fitness & Wellness Names (Top 5)</button>
-        <div class="faq-a">
-          <ul class="best-list">
-            <li>Core Summit</li>
-            <li>Vital Method</li>
-            <li>Zen Motion</li>
-            <li>Peak Wellness</li>
-            <li>Aegis Studio</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-q">Best Creative/Beauty Brand Names (Top 5)</button>
-        <div class="faq-a">
-          <ul class="best-list">
-            <li>Lumi Atelier</li>
-            <li>Opal Glow</li>
-            <li>Maison Fleur</li>
-            <li>Velour Studio</li>
-            <li>Nude Collective</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-q">Can this generate 1000 company names?</button>
-        <div class="faq-a">
-          <p>
-            Yes. Generate 50 at a time and repeat with different settings.
-            You’ll quickly build a list of <strong>1000 company names</strong>
-            using our <strong>creative business name generator</strong>.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq">
-        <button class="faq-q">Can I copy and download the results?</button>
-        <div class="faq-a">
-          <p>
-            Every name has a **Copy** button, plus a **Copy All** option and a **Download .txt** export.
-            This makes collecting your <strong>business name ideas</strong> super fast.
-          </p>
-        </div>
-      </div>
-
-      <!-- Ad inside FAQ -->
-      <div class="ad ad-faq" aria-label="advertisement">
-        <div class="ad-box">Ad Space (Inside FAQ)</div>
-      </div>
-    </section>
-
-    <!-- Blog (on same page) -->
-    <section id="blog" class="container card">
-      <h2 class="center">Blog: Best Practices for Brandable Names</h2>
-      <p class="muted center">
-        This guide covers naming frameworks, examples, and SEO tips using a
-        <strong>business name generator AI</strong>, a <strong>creative business name generator</strong>,
-        and a <strong>catchy name generator</strong> approach.
-      </p>
-
-      <article class="blog-article">
-        <h3>How to Use a Free Business Name Generator (AI-style) for Fast Ideas</h3>
-        <p>
-          Start with your niche (Tech, Clothing, Food, Fitness, Beauty, etc.). Choose a style:
-          <em>Fun</em> for playful brands, <em>Professional</em> for corporate tone,
-          <em>Trendy</em> for modern startups, and <em>Elegant</em> for premium labels.
-          Our tool works like an <strong>AI name generator free</strong> — instantly delivering
-          <strong>business name ideas</strong> you can copy or export.
-        </p>
-        <h4>Frameworks That Work</h4>
-        <ul>
-          <li><strong>Compound</strong>: Pixel Forge, Harbor Capital, Velvet Maison</li>
-          <li><strong>Coined</strong>: Nexora, Innovexa, Lumora</li>
-          <li><strong>Literal + Twist</strong>: Urban Threads, Harvest Kitchen, Core Summit</li>
-        </ul>
-        <p>
-          Mix and match settings to build lists of 50 at a time.
-          Within a few runs you can create <strong>1000 company names</strong> tailored to your brand.
-        </p>
-        <h4>Next Steps</h4>
-        <ul>
-          <li>Check domains and social handles (try .com first, but .io/.store/.co are solid).</li>
-          <li>Do basic trademark searches before you publish or print.</li>
-          <li>Share options with 3–5 people to test clarity and recall.</li>
-        </ul>
-      </article>
-
-      <!-- Blog Ad -->
-      <div class="ad ad-mid">
-        <div class="ad-box">Ad Space (Blog)</div>
-      </div>
-    </section>
-
-    <!-- Bottom banner ad -->
-    <section class="container">
-      <div class="ad ad-bottom" aria-label="advertisement">
-        <div class="ad-box">Ad Space (Bottom Banner)</div>
-      </div>
-    </section>
-
-    <!-- Contact / Privacy anchors -->
-    <section id="contact" class="container card">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:stellarbusinessez@gmail.com">stellarbusinessez@gmail.com</a></p>
-    </section>
-
-    <section id="privacy" class="container card">
-      <h2>Privacy (Short)</h2>
-      <p>
-        We don’t collect personal information unless you contact us. Ads may use cookies for personalization.
-        For requests, email <a href="mailto:stellarbusinessez@gmail.com">stellarbusinessez@gmail.com</a>.
-      </p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a href="#home" class="logo">Business<span>Name</span>Generator</a>
-        <p class="muted">Generate brandable names for any industry — copy, download, and get inspired.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul class="list">
-          <li><a href="#faqs">FAQs</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul class="list">
-          <li><a href="#privacy">Privacy</a></li>
-          <li><a href="#home">Terms (By Use)</a></li>
-        </ul>
-      </div>
+  <!-- FAQs -->
+  <section class="faqs">
+    <h2>FAQs - Business Name Generator</h2>
+    <div class="faq">
+      <h3>Why is a business name important?</h3>
+      <p>A strong business name improves branding, boosts SEO, and creates trust with customers.</p>
     </div>
-    <div class="container copyline">© 2025 BusinessNameGenerator. All rights reserved.</div>
+    <div class="faq">
+      <h3>Top 5 Best Tech Business Names</h3>
+      <p>1. Nexora Labs<br>2. CloudMatrix<br>3. ByteFusion<br>4. Innovexa<br>5. QuantumWorks</p>
+    </div>
+    <div class="faq">
+      <h3>Top 5 Best Clothing Brand Names</h3>
+      <p>1. Urban Threadz<br>2. Velvet Core<br>3. Mode Luxe<br>4. StyleForge<br>5. TrendHaven</p>
+    </div>
+    <div class="faq">
+      <h3>How does the AI business name generator work?</h3>
+      <p>It mixes common <strong>prefixes</strong>, <strong>suffixes</strong>, and creative words to create unique brand names instantly.</p>
+    </div>
+    <div class="faq">
+      <h3>Is this generator free?</h3>
+      <p>Yes! Our <strong>free business name generator</strong> is completely free to use, unlimited.</p>
+    </div>
+  </section>
+
+  <!-- Adsense Banner Bottom -->
+  <div class="ads-banner">[Bottom AdSense Banner Placeholder]</div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 BizNameGen | <a href="privacy-terms.html">Privacy & Terms</a></p>
   </footer>
 
   <script src="script.js"></script>
