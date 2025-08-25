@@ -8,49 +8,25 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Smart Biz Names</h1>
-      <p>Your AI-powered Business Name Generator</p>
-    </div>
+    <h1>Smart Biz Names</h1>
+    <p>Find creative, modern, and brandable names for your business in seconds.</p>
   </header>
 
-  <main class="container">
-    <section class="generator-box">
-      <h2>Generate Your Business Name</h2>
-
-      <!-- Input -->
-      <div class="form-group">
-        <label for="keywords">Enter Keywords:</label>
-        <input type="text" id="keywords" placeholder="e.g., tech, clothing, food">
-      </div>
-
-      <!-- Style Dropdown -->
-      <div class="form-group">
-        <label for="style">Choose Style:</label>
-        <select id="style">
-          <option value="trendy">Trendy</option>
-          <option value="professional">Professional</option>
-          <option value="creative">Creative</option>
-        </select>
-      </div>
-
-      <!-- Category Dropdown -->
-      <div class="form-group">
-        <label for="category">Choose Category:</label>
+  <main>
+    <section class="generator">
+      <h2>Business Name Generator</h2>
+      <div class="filters">
         <select id="category">
-          <option value="general">General</option>
+          <option value="all">All Categories</option>
           <option value="tech">Tech</option>
           <option value="clothing">Clothing</option>
           <option value="food">Food</option>
           <option value="creative">Creative</option>
           <option value="modern">Modern</option>
         </select>
-      </div>
 
-      <!-- Word Length -->
-      <div class="form-group">
-        <label for="wordCount">Name Length:</label>
-        <select id="wordCount">
+        <select id="wordLength">
+          <option value="any">Any Word Length</option>
           <option value="1">1 Word</option>
           <option value="2">2 Words</option>
           <option value="3">3 Words</option>
@@ -58,23 +34,34 @@
       </div>
 
       <button id="generateBtn">Generate Names</button>
+
+      <div id="results"></div>
     </section>
 
-    <section class="results-box">
-      <h2>Generated Names</h2>
-      <ul id="results"></ul>
+    <section class="blog">
+      <h2>How to Pick the Perfect Business Name</h2>
+      <p>
+        Choosing a strong business name is the first step in building a powerful brand identity. 
+        It should be short, memorable, and easy to pronounce. Once you generate a list of ideas 
+        with our tool, the next step is to <strong>check domain availability online</strong> to 
+        ensure your brand is unique and can stand out.
+      </p>
+      <p>
+        Many entrepreneurs use the <strong>GoDaddy domain search</strong> tool to quickly 
+        <strong>check domain availability free</strong> and secure their business identity. 
+        With one click, you can see if your chosen name is available as a domain, or even 
+        <strong>check domain owner</strong> details if it’s already taken.
+      </p>
+      <p>
+        Platforms like <strong>GoDaddy</strong> make it easy to secure your online presence 
+        right after finding the perfect name. Start today with Smart Biz Names and make your 
+        dream brand come alive.
+      </p>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Smart Biz Names. All Rights Reserved.</p>
-      <nav>
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Service</a> |
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+    <p>© 2025 Smart Biz Names. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
