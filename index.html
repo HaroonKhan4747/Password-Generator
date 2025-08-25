@@ -46,27 +46,43 @@
     <h2 class="section-title">Business Name Generator</h2>
 
     <form class="generator-form" onsubmit="event.preventDefault(); generateNames();">
-      <!-- Category -->
-      <div class="form-row">
-        <label for="category" class="form-label">Category</label>
-        <select id="category" class="select">
-          <option value="general">General</option>
-          <option value="tech">Tech</option>
-          <option value="clothing">Clothing</option>
-          <option value="food">Food & Beverage</option>
-          <option value="health">Health & Wellness</option>
-          <option value="finance">Finance</option>
-        </select>
-      </div>
-
       <!-- Style -->
       <div class="form-row">
         <label class="form-label">Style</label>
         <div class="radio-group">
-          <label class="radio"><input type="radio" name="style" value="trendy" checked /><span>Trendy</span></label>
-          <label class="radio"><input type="radio" name="style" value="professional" /><span>Professional</span></label>
-          <label class="radio"><input type="radio" name="style" value="creative" /><span>Creative</span></label>
+          <label class="radio">
+            <input type="radio" name="style" value="trendy" checked />
+            <span>Trendy</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="style" value="professional" />
+            <span>Professional</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="style" value="creative" />
+            <span>Creative</span>
+          </label>
         </div>
+      </div>
+
+      <!-- Category -->
+      <div class="form-row">
+        <label for="category" class="form-label">Category</label>
+        <select id="category" class="select">
+          <option value="general" selected>General</option>
+          <option value="tech">Tech</option>
+          <option value="clothing">Clothing</option>
+        </select>
+      </div>
+
+      <!-- Word count -->
+      <div class="form-row">
+        <label for="wordCount" class="form-label">Word Count</label>
+        <select id="wordCount" class="select">
+          <option value="1">1 Word</option>
+          <option value="2" selected>2 Words</option>
+          <option value="3">3 Words</option>
+        </select>
       </div>
 
       <!-- Number of names -->
@@ -74,7 +90,7 @@
         <label for="nameCount" class="form-label">Number of names</label>
         <select id="nameCount" class="select">
           <option value="2">2</option>
-          <option value="5">5</option>
+          <option value="5" selected>5</option>
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="30">30</option>
@@ -101,24 +117,24 @@
   <section id="blog" class="container">
     <div class="card">
       <h2 class="section-title">Branding Guide & Name Ideas</h2>
-
       <article class="blog-article">
-        <h3>Why a Business Name Matters</h3>
-        <p>Your business name is the first impression customers see. A memorable, easy-to-pronounce name improves click-through rates, boosts word-of-mouth, and supports organic rankings. That’s why tools like our <strong>business name generator AI</strong> and <strong>AI name generator free</strong> are useful — they quickly surface <strong>business name ideas</strong> that feel brandable.</p>
+        <h3 id="why-names-matter">Why a Business Name Matters</h3>
+        <p>
+          Your business name is the first impression customers see. A memorable, easy-to-pronounce name improves click-through rates, boosts word-of-mouth, and supports organic rankings. Our AI generator quickly surfaces brandable ideas.
+        </p>
+
+        <!-- Chart/Image placeholder -->
         <div class="chart-placeholder">[ Add your chart or image about name impact on CTR/branding here ]</div>
 
-        <h3>Naming Strategies That Work</h3>
+        <h3 id="naming-strategies">Naming Strategies That Work</h3>
         <ul class="list">
           <li><strong>Blend words</strong> (e.g., “Brand + Logic” → Brandlogic).</li>
           <li><strong>Coin new words</strong> (short, sticky, trend-ready).</li>
           <li><strong>Use category hints</strong> (tech, apparel, finance) for clarity.</li>
           <li><strong>Test pronunciation</strong> and avoid complex spellings.</li>
         </ul>
-
-        <p>Our <strong>free business name generator</strong> works like a <strong>creative business name generator</strong> and <strong>catchy name generator</strong> in one. Spin hundreds of options — essentially like browsing <strong>1000 company names</strong> — until you find “the one.” If you searched for a <strong>business generator name</strong> or <strong>business name generators</strong>, you’re in the right place.</p>
       </article>
 
-      <!-- Blog Ad -->
       <div class="adsense-incontent" aria-label="ad">
         <div class="adsense-incontent__box">[ Blog In-Content AdSense Banner ]</div>
       </div>
@@ -131,11 +147,19 @@
       <h2 class="section-title">FAQs — Smart Biz Names</h2>
       <div class="accordion">
         <button class="accordion__header">How does this business name generator work?</button>
-        <div class="accordion__panel"><p>Pick a style and category, then choose how many names (2–50). Our engine mixes curated word banks to produce unique, brandable ideas. It’s a <strong>business names generator</strong> that feels instant and simple.</p></div>
+        <div class="accordion__panel">
+          <p>Pick a style, category, word count, and number of names. Our engine mixes curated word banks to produce unique, brandable ideas instantly.</p>
+        </div>
+
         <button class="accordion__header">Is it really free?</button>
-        <div class="accordion__panel"><p>Yes. Smart Biz Names is a <strong>free business name generator</strong>. Use it as much as you like — like an <strong>AI name generator free</strong>.</p></div>
+        <div class="accordion__panel">
+          <p>Yes. Smart Biz Names is completely free. Use it as much as you like.</p>
+        </div>
+
         <button class="accordion__header">Do I need to check trademarks?</button>
-        <div class="accordion__panel"><p>Yes. We don’t check trademark availability. Search local databases before using any name. Our tool is a <strong>company generator name</strong> helper — final due diligence is yours.</p></div>
+        <div class="accordion__panel">
+          <p>Yes. Always verify domain and trademark availability before using any name.</p>
+        </div>
       </div>
     </div>
   </section>
