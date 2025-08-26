@@ -1,62 +1,129 @@
-/* --- Reset & Basic --- */
-body, h1,h2,h3,p,ul,li,figure{margin:0;padding:0}
-body{font-family:Arial,sans-serif;line-height:1.6;color:#111;background:#f9f9f9}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9fbff;
+  color: #333;
+  text-align: center;
+}
 
-/* --- Header & Nav --- */
-.site-header{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.1)}
-.navbar{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:10px 20px}
-.brand__logo{font-weight:bold;font-size:1.5rem}
-.brand__logo span{color:#1a73e8}
-.brand__tagline{display:block;font-size:.8rem;color:#666}
-.nav-links{display:flex;gap:15px;list-style:none}
-.nav-links a{text-decoration:none;color:#111;font-weight:500}
-.hamburger{display:none;font-size:1.5rem;background:none;border:none;cursor:pointer}
+.hero {
+  background: #2563eb;
+  color: white;
+  padding: 50px 20px;
+  border-radius: 0 0 30px 30px;
+}
 
-/* --- Hero --- */
-.hero{max-width:800px;margin:40px auto;text-align:center}
-.hero h1{font-size:2rem;margin-bottom:10px}
-.hero__subtitle{font-size:1.1rem;color:#555}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
 
-/* --- Cards / Sections --- */
-.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.06);margin-bottom:30px}
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.2rem;
+}
 
-/* --- Forms --- */
-.generator-form .form-row{margin-bottom:15px}
-.form-label{display:block;margin-bottom:5px;font-weight:600}
-.select,input{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}
-.radio-group{display:flex;gap:10px}
-.radio input{margin-right:5px}
-.actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
-.btn{padding:8px 14px;border:none;border-radius:6px;cursor:pointer;font-weight:600}
-.btn-primary{background:#1a73e8;color:#fff}
-.btn-outline{background:#fff;color:#1a73e8;border:1px solid #1a73e8}
+.controls {
+  margin: 30px auto;
+  padding: 15px;
+}
 
-/* --- Results --- */
-.results-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.name-chip{background:#f0f4ff;padding:8px 12px;border-radius:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.copy-btn,.domain-btn{background:#1a73e8;color:#fff;padding:4px 8px;border:none;border-radius:6px;font-size:.8rem;cursor:pointer}
+.controls label {
+  margin: 0 10px;
+  font-size: 1rem;
+}
 
-/* --- Accordion --- */
-.accordion__header{width:100%;text-align:left;padding:10px;border:1px solid #ddd;border-radius:6px;background:#f0f0f0;cursor:pointer;margin-top:5px;font-weight:600}
-.accordion__panel{padding:10px;border-left:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;display:none}
+.controls select, .controls button {
+  margin: 0 8px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
 
-/* --- TOC --- */
-.toc{margin:15px 0;padding:10px;background:#f9f9f9;border-left:4px solid #1a73e8}
-.toc__title{font-weight:600;margin-bottom:5px}
-.toc ul{list-style:none;padding-left:10px}
-.toc a{text-decoration:none;color:#1a73e8}
+.controls button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
-/* --- Adsense --- */
-.adsense-banner,.adsense-incontent{margin:20px 0;text-align:center}
-.adsense-banner__box,.adsense-incontent__box{background:#eee;padding:20px;border-radius:12px;color:#555}
+.controls button:hover {
+  background: #1e4db7;
+}
 
-/* --- Footer --- */
-.site-footer{background:#111;color:#fff;padding:20px 0;text-align:center}
-.site-footer a{color:#1a73e8;text-decoration:none}
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 20px;
+}
 
-/* --- Responsive --- */
-@media(max-width:768px){
-  .hamburger{display:block}
-  .nav-links{display:none;flex-direction:column;gap:10px}
-  body.nav-open .nav-links{display:flex}
+.name-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.name-card h3 {
+  margin: 0 0 10px;
+  color: #2563eb;
+}
+
+.name-card button {
+  margin: 5px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.copy-btn {
+  background: #10b981;
+  color: white;
+}
+
+.copy-btn:hover {
+  background: #059669;
+}
+
+.domain-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.domain-btn:hover {
+  background: #d97706;
+}
+
+.blog {
+  background: white;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: left;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.blog h2 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.blog p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+footer {
+  background: #f1f5f9;
+  padding: 20px;
+  font-size: 0.9rem;
 }
