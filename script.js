@@ -1,86 +1,97 @@
-const prefixes = {
-  general: ["Next", "Prime", "Elite", "Nova", "True", "Bright", "Blue", "Vision", "Urban", "Quantum", "Epic", "Super", "Meta", "Alpha", "Global", "Future"],
-  tech: ["Cyber", "Pixel", "Data", "Cloud", "Code", "AI", "Neuro", "Net", "Robo", "Soft", "Techno"],
-  fashion: ["Vogue", "Style", "Chic", "Mode", "Trend", "Elite", "Wear", "Cloth", "Luxe", "Glam"],
-  food: ["Tasty", "Yum", "Fresh", "Chef", "Bite", "Snack", "Sweet", "Grill", "Kitchen", "Feast"],
-  fitness: ["Fit", "Flex", "Strong", "Power", "Core", "Pulse", "Iron", "Beast", "Muscle", "Active"],
-  finance: ["Capital", "Wealth", "Trust", "Coin", "Fund", "Pay", "Invest", "Value", "Bank"],
-  health: ["Medi", "Care", "Life", "Pure", "Well", "Bio", "Cure", "Green", "Heal"],
-  travel: ["Trip", "Globe", "Air", "Fly", "Wander", "Roam", "Nomad", "Explore", "Go"],
-  education: ["Learn", "Edu", "Skill", "Smart", "Think", "Bright", "Mind", "Tutor", "Class"],
-  gaming: ["Play", "Game", "XP", "Quest", "Level", "Boss", "Arena", "Pixel", "Control"]
-};
+// --- Mobile menu ---
+const hamburger = document.getElementById('hamburger');
+hamburger?.addEventListener('click', () => {document.body.classList.toggle('nav-open');});
 
-const suffixes = {
-  general: ["Labs", "Works", "Hub", "Point", "Solutions", "Zone", "Edge", "World", "Base", "Studio", "Nation"],
-  tech: ["Systems", "Logic", "Soft", "Tech", "Cloud", "Ware", "Dynamics"],
-  fashion: ["Wear", "Couture", "Apparel", "Line", "Looks", "House", "Threads"],
-  food: ["Foods", "Bites", "Grill", "Kitchen", "Eats", "Cafe", "Dine"],
-  fitness: ["Gym", "Force", "Athletics", "Club", "Zone", "Squad", "Nation"],
-  finance: ["Group", "Funds", "Holdings", "Pay", "Wallet", "Trust", "Capital"],
-  health: ["Clinic", "Care", "Health", "Labs", "Pharma", "Wellness", "Therapy"],
-  travel: ["Travels", "Airways", "Tours", "Trips", "Journey", "World", "Getaway"],
-  education: ["Academy", "School", "College", "Institute", "Center", "Labs"],
-  gaming: ["Zone", "Arena", "Guild", "Squad", "Legends", "Empire", "Nation"]
-};
-
-document.getElementById("generateBtn").addEventListener("click", generateNames);
-document.getElementById("copyAllBtn").addEventListener("click", copyAll);
-
-function generateNames() {
-  const wordCount = parseInt(document.getElementById("wordCount").value);
-  const niche = document.getElementById("niche").value;
-  const resultsDiv = document.getElementById("results");
-  resultsDiv.innerHTML = "";
-
-  let names = new Set();
-
-  while (names.size < 20) {
-    let nameParts = [];
-
-    if (wordCount === 1) {
-      nameParts.push(randomFrom(prefixes[niche]));
-    } else if (wordCount === 2) {
-      nameParts.push(randomFrom(prefixes[niche]));
-      nameParts.push(randomFrom(suffixes[niche]));
-    } else if (wordCount === 3) {
-      nameParts.push(randomFrom(prefixes[niche]));
-      nameParts.push(randomFrom(prefixes.general));
-      nameParts.push(randomFrom(suffixes[niche]));
-    }
-
-    const name = nameParts.join("");
-    names.add(name);
+// --- Word banks by style and niche ---
+const bank = {
+  trendy: {
+    left: ["Nexo","Nova","Vibe","Pixel","Echo","Flux","Aero","Axio","Lumo","Hyper","Zeno","Zygo","Kairo","Moxo","Velox","Pixo","Zappi","Quixo","Nimbus","Opty","Mint","Blitz","Spark","Pulse","Vivid","Swift","Flick","Glide","Drift","Zen"],
+    right:["ly","ify","io","ster","scape","grid","core","byte","forge","wave","cloud","flow","lane","loop","verse","stack","shift","mate","nest","lab","hub","base","mark","mint","spark","pilot","craft","works","box","lift"]
+  },
+  professional: {
+    left:["Prime","North","Blue","Ever","Crest","Summit","Sterling","Granite","Beacon","Cedar","River","Atlas","Guardian","Unity","Keystone","Legacy","Pioneer","Crown","Harbor","Iron","Silver","Noble","Anchor","Oak","Vista","Regal","First","Global","Capital","Apex"],
+    right:["Ledger","Partners","Advisory","Group","Holdings","Consulting","Solutions","Associates","Analytics","Ventures","Services","Dynamics","Industries","Systems","Enterprises","Networks","Management","Collective","Labs","Works","Bridge","Point","Edge","Square","Circle","Union","Matrix","Capital","Vista","Field"]
+  },
+  creative: {
+    left:["Fizz","Echo","Doodle","Mingle","Quirk","Hatch","Whim","Bumble","Pepper","Clever","Bright","Happy","Nimble","Rocket","Paper","Lemon","Mango","Juniper","Cotton","Maple","Indigo","Copper","Cobalt","Pep","Mirth","Fable","Orbit","Story","Snap","Aura","Nova","Pixel","Vibe"],
+    right:["Foundry","Nest","Bloom","Loom","Forge","Mint","Muse","Patch","Pop","Sprout","& Co","Atelier","Lab","Studio","Works","Wagon","Basket","Barrel","Rocket","House","Harbor","Garden","Press","Pilot","Pixel","Pony","Pulse","Panda","Picnic"]
   }
+};
 
-  names.forEach(n => {
-    const card = document.createElement("div");
-    card.classList.add("name-card");
-    card.innerHTML = `
-      <h3>${n}</h3>
-      <button class="copy-btn" onclick="copyName('${n}')">Copy</button>
-      <button class="domain-btn" onclick="checkDomain('${n}')">Check Domain</button>
-    `;
-    resultsDiv.appendChild(card);
+// --- Helper functions ---
+const pick = arr => arr[Math.floor(Math.random()*arr.length)];
+
+function makeName(style, words = 2){
+  const s = bank[style] || bank.trendy;
+  let name = '';
+  for(let i=0;i<words;i++){
+    if(Math.random()<0.7){ name += `${pick(s.left)}${pick(s.right)} `; }
+    else { const both = s.left.concat(s.right); name += pick(both) + ' '; }
+  }
+  return name.trim();
+}
+
+function batchNames(style, count, words=2){
+  const set = new Set(); let guard=0;
+  while(set.size<count && guard<count*10){
+    set.add(makeName(style,words));
+    guard++;
+  }
+  return Array.from(set);
+}
+
+function renderResults(names){
+  const results = document.getElementById('results'); results.innerHTML='';
+  names.forEach(name=>{
+    const row = document.createElement('div'); row.className='name-chip';
+    row.innerHTML=`<span>${name}</span>
+    <button class="copy-btn" onclick="copyText('${name}')">Copy</button>
+    <button class="domain-btn" onclick="checkDomain('${name}')">Check Domain</button>`;
+    results.appendChild(row);
   });
 }
 
-function randomFrom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+function generateNames(){
+  const count = parseInt(document.getElementById('nameCount').value,10);
+  const style = document.querySelector('input[name="style"]:checked')?.value || 'trendy';
+  const words = parseInt(document.getElementById('wordCount').value,10);
+  const names = batchNames(style,count,words);
+  renderResults(names);
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function copyName(name) {
-  navigator.clipboard.writeText(name);
-  alert(`Copied: ${name}`);
+function copyText(text){
+  navigator.clipboard.writeText(text).then(()=>{toast(`Copied: ${text}`);}).catch(()=>alert('Copy failed'));
 }
 
-function copyAll() {
-  const names = Array.from(document.querySelectorAll(".name-card h3")).map(e => e.innerText);
-  navigator.clipboard.writeText(names.join(", "));
-  alert("All names copied!");
+function copyAll(){
+  const names=Array.from(document.querySelectorAll('#results .name-chip span')).map(s=>s.textContent);
+  if(!names.length){toast('No names to copy');return;}
+  navigator.clipboard.writeText(names.join('\n')).then(()=>toast('All names copied')).catch(()=>alert('Copy failed'));
 }
 
-function checkDomain(name) {
-  const url = `https://www.godaddy.com/en/domainsearch/find?checkAvail=1&tmskey=&domainToCheck=${name}.com`;
-  window.open(url, "_blank");
+function checkDomain(name){
+  const url = `https://www.godaddy.com/domainsearch/find?checkAvail=1&tmskey=&domainToCheck=${encodeURIComponent(name)}.com`;
+  window.open(url,'_blank');
 }
+
+function toast(msg){
+  const t=document.createElement('div'); t.textContent=msg;
+  t.style.position='fixed'; t.style.bottom='20px'; t.style.left='50%';
+  t.style.transform='translateX(-50%)';
+  t.style.background='#1a73e8'; t.style.color='#fff'; t.style.padding='10px 14px';
+  t.style.borderRadius='10px'; t.style.boxShadow='0 6px 18px rgba(0,0,0,.2)'; t.style.zIndex='9999';
+  document.body.appendChild(t); setTimeout(()=>t.remove(),1600);
+}
+
+// --- Accordion ---
+document.addEventListener('click',e=>{
+  if(e.target.classList.contains('accordion__header')){
+    const panel=e.target.nextElementSibling;
+    const open=panel.style.display==='block';
+    document.querySelectorAll('.accordion__panel').forEach(p=>p.style.display='none');
+    if(!open) panel.style.display='block';
+  }
+});
+
+window.generateNames=generateNames; window.copyText=copyText; window.copyAll=copyAll; window.checkDomain=checkDomain;
