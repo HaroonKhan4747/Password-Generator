@@ -1,81 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free AI Business Name Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SmartBizNames — Free AI Business Name Generator</title>
+  <meta name="description" content="SmartBizNames is a free AI business name generator. Get creative, professional, and trendy business name ideas instantly. Perfect for startups, clothing brands, tech companies, and more." />
+  <meta name="keywords" content="Business name generator AI,Business name ideas,Free business name generator,Creative business name generator,Catchy name generator,1000 company names,AI name generator free,business generator name,business name generator,business name generators,business names generator,company generator name" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Free AI Business Name Generator</h1>
-    <p>Generate trendy, professional, and creative company names in seconds. Perfect for startups, e-commerce, apps, and brands.</p>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="brand">
+        <span class="brand__logo">SmartBizNames</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#generator">Generator</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-terms.html">Privacy & Terms</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Controls -->
-  <section class="controls">
-    <label>Number of Words:
-      <select id="wordCount">
-        <option value="1">1</option>
-        <option value="2" selected>2</option>
-        <option value="3">3</option>
-      </select>
-    </label>
+  <!-- Top Ad -->
+  <div class="adsense-banner container" aria-label="ad">
+    <div class="adsense-banner__box">[ Top AdSense Banner ]</div>
+  </div>
 
-    <label>Niche:
-      <select id="niche">
-        <option value="general">General</option>
-        <option value="tech">Tech</option>
-        <option value="fashion">Fashion</option>
-        <option value="food">Food</option>
-        <option value="fitness">Fitness</option>
-        <option value="finance">Finance</option>
-        <option value="health">Health</option>
-        <option value="travel">Travel</option>
-        <option value="education">Education</option>
-        <option value="gaming">Gaming</option>
-      </select>
-    </label>
-
-    <button id="generateBtn">Generate Names</button>
-    <button id="copyAllBtn">Copy All</button>
-  </section>
-
-  <!-- Results -->
-  <section class="results" id="results"></section>
-
-  <!-- Blog Section -->
-  <section class="blog">
-    <h2>Why Use Our Free AI Business Name Generator?</h2>
-    <p>
-      Finding the right name for your brand is crucial. Our <strong>Business name generator AI</strong> provides 
-      <strong>business name ideas</strong> instantly. Whether you’re looking for a 
-      <strong>free business name generator</strong>, a <strong>creative business name generator</strong>, or even a 
-      <strong>catchy name generator</strong>, our tool has you covered. 
-    </p>
-    <p>
-      We offer inspiration from over <strong>1000 company names</strong> in our database. Our 
-      <strong>AI name generator free</strong> ensures you can quickly brainstorm the best names for your brand. 
-      With powerful <strong>business generator name</strong> logic, our system avoids repetitive suggestions 
-      and delivers quality results.
-    </p>
-    <p>
-      Once you have your perfect name, you can <strong>check domain availability online</strong> with a single click. 
-      Our tool connects you to <strong>GoDaddy domain search</strong> to see if your business name’s domain is available. 
-      You can also <strong>check domain availability free</strong> and even <strong>check domain owner</strong> details 
-      directly through GoDaddy.
-    </p>
-    <p>
-      Start building your brand today with the best <strong>business name generator</strong> on the web. From 
-      <strong>business name generators</strong> to full <strong>business names generator</strong> solutions, 
-      we help you turn an idea into a real brand.
+  <!-- Hero -->
+  <section class="hero container">
+    <h1 class="hero-title">Free AI Business Name Generator</h1>
+    <p class="hero__subtitle">
+      Generate <strong>trendy</strong>, <strong>professional</strong>, and <strong>creative</strong> company names in seconds. Perfect for startups, e-commerce, apps, and brands.
     </p>
   </section>
 
-  <footer>
-    <a href="terms.html">Terms & Privacy</a> | 
-    <a href="contact.html">Contact Us</a>
+  <!-- Generator -->
+  <section id="generator" class="card container">
+    <h2 class="section-title">Business Name Generator</h2>
+    <form class="generator-form" onsubmit="event.preventDefault(); generateNames();">
+      
+      <div class="form-row">
+        <label class="form-label">Style</label>
+        <div class="radio-group">
+          <label class="radio"><input type="radio" name="style" value="trendy" checked /> Trendy</label>
+          <label class="radio"><input type="radio" name="style" value="professional" /> Professional</label>
+          <label class="radio"><input type="radio" name="style" value="creative" /> Creative</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Niche</label>
+        <select id="niche" class="select">
+          <option value="general" selected>General</option>
+          <option value="tech">Tech</option>
+          <option value="fashion">Fashion</option>
+          <option value="food">Food</option>
+          <option value="fitness">Fitness</option>
+          <option value="finance">Finance</option>
+          <option value="health">Health</option>
+          <option value="travel">Travel</option>
+          <option value="education">Education</option>
+          <option value="gaming">Gaming</option>
+          <option value="lifestyle">Lifestyle</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="realestate">Real Estate</option>
+          <option value="beauty">Beauty</option>
+          <option value="pets">Pets</option>
+          <option value="sports">Sports</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="wordCount" class="form-label">Words per name</label>
+        <select id="wordCount" class="select">
+          <option value="1">1 Word</option>
+          <option value="2" selected>2 Words</option>
+          <option value="3">3 Words</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="nameCount" class="form-label">Number of names</label>
+        <select id="nameCount" class="select">
+          <option value="2">2</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Generate Names</button>
+        <button type="button" class="btn btn-outline" onclick="copyAll()">Copy All</button>
+      </div>
+    </form>
+
+    <div id="results" class="results-grid" aria-live="polite"></div>
+
+    <!-- Mid Ad -->
+    <div class="adsense-incontent" aria-label="ad">
+      <div class="adsense-incontent__box">[ In-Content AdSense Banner ]</div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="container">
+    <div class="card">
+      <h2 class="section-title">Blog — SmartBizNames</h2>
+      <nav class="toc">
+        <p class="toc__title">On this page</p>
+        <ul>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </nav>
+      <article class="blog-article">
+        <p>
+          Welcome to SmartBizNames — your <strong>business name generator AI</strong>. Our tool gives you <strong>creative business name generator</strong> results instantly. Whether you're looking for a <strong>catchy name generator</strong> for tech, fashion, or startups, you can explore hundreds of <strong>business name ideas</strong> like browsing <strong>1000 company names</strong>. Use our <strong>free business name generator</strong> to generate <strong>business generator name</strong> options tailored to your style: <strong>trendy</strong>, <strong>professional</strong>, or <strong>creative</strong>.
+        </p>
+        <div class="chart-placeholder">[ Add chart/image about name impact on branding here ]</div>
+      </article>
+      <div class="adsense-incontent" aria-label="ad">
+        <div class="adsense-incontent__box">[ Blog In-Content AdSense Banner ]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faqs" class="container">
+    <div class="card">
+      <h2 class="section-title">FAQs — SmartBizNames</h2>
+      <div class="accordion">
+        <button class="accordion__header">How does this business name generator work?</button>
+        <div class="accordion__panel">
+          <p>Pick a style — <strong>Trendy</strong>, <strong>Professional</strong>, or <strong>Creative</strong> — choose how many names (2–100) and words per name (1–3). The engine mixes curated word banks per niche to generate unique, brandable ideas.</p>
+        </div>
+        <button class="accordion__header">Is it really free?</button>
+        <div class="accordion__panel">
+          <p>Yes. SmartBizNames is a <strong>free business name generator</strong>. Use it as much as you like.</p>
+        </div>
+        <button class="accordion__header">Do I need to check trademarks?</button>
+        <div class="accordion__panel">
+          <p>Yes. Verify domain and trademark availability. Our tool is a <strong>company generator name</strong> helper — final due diligence is yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Ad -->
+  <div class="adsense-banner container" aria-label="ad">
+    <div class="adsense-banner__box">[ Bottom AdSense Banner ]</div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 SmartBizNames • <a href="privacy-terms.html">Privacy & Terms</a> • <a href="contact.html">Contact</a></p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
