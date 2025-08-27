@@ -1,52 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smartbiznames | Free AI Business Name Generator</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartBizNames - AI Business Name Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: #f8f9fa;
+    }
+    header {
+      background: #343a40;
+      color: #fff;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input, button {
+      padding: 10px 15px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .name-result {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f1f1f1;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+    .name-result span {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .action-buttons button {
+      margin-left: 5px;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 6px;
+    }
+    footer {
+      background: #343a40;
+      color: #fff;
+      padding: 15px;
+      margin-top: 30px;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .name-result {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .action-buttons {
+        display: flex;
+        gap: 8px;
+      }
+    }
+  </style>
+  <script>
+    // Expanded wordbanks
+    const wordbanks = {
+      "Fashion": ["Chroma","Velora","Zyra","Fayno","Orvia","Lumora","Nuvia","Aureli","Kivra","Elvara","Moda","Couture","Fabrica","Styla","Runway","Silque","Drape","Voguea","Trendia","Clothar"],
+      "Tech": ["Neura","Cortex","Bytezo","Algoz","Zynix","Crypta","Softro","Innova","Robora","Cirtron","Virtua","Technexa","Logix","Matrixa","Digira","Cloudex","Quanta","Automax","Netrix","Syntho"],
+      "Food": ["Savora","Nutria","Delix","Zesto","Flavory","Tastivo","Cuisino","Muncher","Brewla","Sipzo","Chefro","Snacka","Grillix","Bitezo","Mealra","Dishor","Cravex","Savoria","Eateria","Platra"],
+      "Fitness": ["Flexra","Stronga","Vitalo","Energix","Musclor","Corexa","Trainor","Endura","Cardia","Fitnix","Athlo","Pulsear","Powerra","Gainix","Stamix","Dynoro","Motivra","Bodexa","Exerzo","Liftra"],
+      "Finance": ["Monexa","Credora","Investo","Payra","Lendra","Savira","Fundro","Wealtha","Portexa","Capitra","Divira","Growlo","Cashra","Equira","Tranzor","Stoxxa","Coinra","Buxon","Valora","Assetra"]
+    };
+
+    function generateNames() {
+      let niche = document.getElementById("niche").value;
+      let wordCount = parseInt(document.getElementById("wordCount").value);
+      let numNames = parseInt(document.getElementById("numNames").value);
+      let resultsDiv = document.getElementById("results");
+      resultsDiv.innerHTML = "";
+
+      let words = wordbanks[niche];
+      let generated = new Set();
+
+      while (generated.size < numNames) {
+        let name = "";
+        for (let i = 0; i < wordCount; i++) {
+          name += words[Math.floor(Math.random() * words.length)];
+        }
+        if (!generated.has(name)) {
+          generated.add(name);
+          let div = document.createElement("div");
+          div.className = "name-result";
+          div.innerHTML = `<span>${name}</span>
+            <div class="action-buttons">
+              <button onclick="copyName('${name}')">Copy</button>
+              <button onclick="checkDomain('${name}')">Check Domain</button>
+            </div>`;
+          resultsDiv.appendChild(div);
+        }
+      }
+    }
+
+    function copyName(name) {
+      navigator.clipboard.writeText(name);
+      alert(name + " copied!");
+    }
+
+    function checkDomain(name) {
+      window.open(`https://www.godaddy.com/domainsearch/find?checkAvail=1&tmskey=&domainToCheck=${name}.com`, "_blank");
+    }
+  </script>
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">Smartbiznames</div>
-    <nav class="nav">
-      <ul>
-        <li><a href="#generator">Generator</a></li>
-        <li><a href="#faq">FAQs</a></li>
-        <li><a href="#blog">Blog</a></li>
-      </ul>
+  <header>
+    <h1>SmartBizNames</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
     </nav>
-    <div class="hamburger">&#9776;</div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Free AI Business Name Generator</h1>
-      <p>Generate trendy, professional, and creative company names in seconds. Perfect for startups, e-commerce, apps, and brands.</p>
-    </div>
-  </section>
-
-  <!-- GENERATOR -->
-  <section id="generator" class="generator">
-    <h2>Generate Business Names</h2>
-    <div class="generator-controls">
+  <main>
+    <section>
+      <h2>AI Business Name Generator</h2>
       <label for="niche">Choose a niche:</label>
       <select id="niche">
-        <option value="general">General</option>
-        <option value="tech">Technology</option>
-        <option value="fashion">Fashion</option>
-        <option value="food">Food & Beverage</option>
-        <option value="fitness">Fitness & Health</option>
-        <option value="finance">Finance</option>
-        <option value="creative">Creative & Media</option>
-        <option value="eco">Eco & Green</option>
-        <option value="luxury">Luxury</option>
-        <option value="education">Education</option>
-        <option value="gaming">Gaming</option>
-        <option value="travel">Travel</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Tech">Tech</option>
+        <option value="Food">Food</option>
+        <option value="Fitness">Fitness</option>
+        <option value="Finance">Finance</option>
       </select>
 
       <label for="wordCount">Word count:</label>
@@ -57,62 +180,48 @@
       </select>
 
       <label for="numNames">Number of names:</label>
-      <select id="numNames">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-      </select>
+      <input type="number" id="numNames" min="1" max="20" value="10">
 
-      <button id="generateBtn" class="btn">Generate Names</button>
-    </div>
-    <ul id="results"></ul>
-  </section>
+      <br>
+      <button onclick="generateNames()">Generate Names</button>
+    </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <h3>How does Smartbiznames generate names?</h3>
-      <p>Our AI combines niche-specific keywords with creative word structures to create unique, brandable names.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can I check if a domain is available?</h3>
-      <p>Yes! Each result has a "Check Domain" button that links directly to GoDaddy.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Are the generated names free to use?</h3>
-      <p>Yes, you can freely use the suggested names for your business, brand, or project.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can I get one-word brand names?</h3>
-      <p>Yes. Select "1 word" from the dropdown, and the AI will only generate single-word names.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What industries are supported?</h3>
-      <p>We support niches like tech, fashion, food, fitness, finance, education, gaming, eco, luxury, and more.</p>
-    </div>
-  </section>
+    <section>
+      <h3>Generated Names</h3>
+      <div id="results"></div>
+    </section>
 
-  <!-- BLOG -->
-  <section id="blog" class="blog">
-    <h2>Smartbiznames Blog</h2>
-    <article>
-      <h3>Top 10 Tips for Naming Your Startup</h3>
-      <p>A great business name can set you apart from the competition. Learn how to choose one that’s memorable and effective.</p>
-    </article>
-    <article>
-      <h3>Why Short Brand Names Work Best</h3>
-      <p>Short and punchy names are easier to remember, type, and brand. Discover why minimalism in naming is powerful.</p>
-    </article>
-    <article>
-      <h3>How to Check Domain Availability</h3>
-      <p>Before finalizing a name, always check if the domain is available. With our "Check Domain" button, it’s instant.</p>
-    </article>
-  </section>
+    <!-- Google AdSense Banner -->
+    <div style="margin:20px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-xxxxxxxxxx"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© 2025 Smartbiznames. All rights reserved.</p>
+    <section>
+      <h3>FAQs</h3>
+      <h4>Top 5 Fashion Business Name Ideas</h4>
+      <ul><li>Chroma</li><li>Velora</li><li>Zyra</li><li>Lumora</li><li>Orvia</li></ul>
+
+      <h4>Top 5 Tech Business Name Ideas</h4>
+      <ul><li>Neura</li><li>Cortex</li><li>Crypta</li><li>Innova</li><li>Zynix</li></ul>
+
+      <h4>Top 5 Food Business Name Ideas</h4>
+      <ul><li>Savora</li><li>Flavory</li><li>Tastivo</li><li>Muncher</li><li>Delix</li></ul>
+
+      <h4>Top 5 Fitness Business Name Ideas</h4>
+      <ul><li>Flexra</li><li>Vitalo</li><li>Musclor</li><li>Cardia</li><li>Energix</li></ul>
+
+      <h4>Top 5 Finance Business Name Ideas</h4>
+      <ul><li>Monexa</li><li>Credora</li><li>Wealtha</li><li>Fundro</li><li>Investo</li></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SmartBizNames | All rights reserved.</p>
   </footer>
 </body>
 </html>
