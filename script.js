@@ -1,65 +1,95 @@
-// ---------- Helpers (unchanged) ----------
-function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-function sanitizeToken(t){ return (t||'').toString().replace(/[^\w]/g,'').trim(); }
-function cap(t){ if(!t) return ''; return t.charAt(0).toUpperCase()+t.slice(1); }
+// ================== Hamburger Menu ==================
+const menuBtn = document.getElementById("menu-btn");
+const sideDrawer = document.getElementById("side-drawer");
+const closeDrawer = document.getElementById("close-drawer");
 
-// ---------- Style-aware one-word generator ----------
-function makeOneWord(niche, style='trendy'){
-  const bank = BANK[niche] && BANK[niche].length ? BANK[niche] : BANK.general;
-  let word = cap(sanitizeToken(pick(bank)));
+menuBtn.addEventListener("click", () => {
+    sideDrawer.classList.toggle("open");
+});
 
-  if(style === 'creative' && Math.random() < 0.3){
-    word = pick(['Neo','Eco','Tech','X','i','Smart','Ultra','Meta','Pro','Omni']) + word;
-  }
-  return word;
-}
+closeDrawer.addEventListener("click", () => {
+    sideDrawer.classList.remove("open");
+});
 
-// ---------- Style-aware multi-word generator ----------
-function makeMultiWord(niche, count, style='trendy'){
-  const bank = (BANK[niche] && BANK[niche].length) ? BANK[niche].slice() : BANK.general.slice();
-  const selected = [];
-  let attempts = 0;
+// ================== FAQ Section ==================
+const faqItems = document.querySelectorAll(".faq-item");
 
-  while(selected.length < count && attempts < 500){
-    attempts++;
-    const t = sanitizeToken(pick(bank));
-    if(!t) continue;
-    const c = cap(t);
-    if(!selected.includes(c)) selected.push(c);
-  }
+faqItems.forEach((item) => {
+    item.querySelector(".faq-question").addEventListener("click", () => {
+        item.classList.toggle("open");
+    });
+});
 
-  // Style adjustments
-  if(style === 'creative'){
-    for(let i=0;i<selected.length;i++){
-      if(Math.random()<0.3) selected[i] += pick(['ly','io','sy','ster','hub','verse']);
-      else if(Math.random()<0.2) selected[i] = pick(['Neo','Eco','Tech','X','i','Smart','Ultra','Meta','Pro','Omni']) + selected[i];
+// ================== Word Bank with Prefixes & Suffixes ==================
+const wordBank = {
+    general: {
+        prefixes: ["Nova", "Pulse", "Prime", "Vision", "Next"],
+        suffixes: ["Works", "Lab", "Edge", "World", "Nation"],
+    },
+    fashion: {
+        prefixes: ["Vogue", "Chic", "Mode", "Haute", "Luxe"],
+        suffixes: ["Wear", "Line", "Threads", "Runway", "Style"],
+    },
+    tech: {
+        prefixes: ["Cyber", "Neuro", "Quantum", "Byte", "Pixel"],
+        suffixes: ["Ware", "Systems", "Logic", "Tech", "Dynamics"],
+    },
+    fitness: {
+        prefixes: ["Power", "Flex", "Iron", "Core", "Peak"],
+        suffixes: ["Fit", "Strength", "Zone", "Training", "Nation"],
+    },
+    food: {
+        prefixes: ["Taste", "Fresh", "Flavor", "Yum", "Chef"],
+        suffixes: ["Bite", "Kitchen", "Feast", "Plates", "Corner"],
     }
-  }
-  // professional style: clean, no hyphens, strong
-  // trendy style: leave as is
+    // 👉 You can add more niches here later
+};
 
-  while(selected.length < count){
-    selected.push(cap(sanitizeToken(pick(BANK.general))));
-  }
-
-  return selected.join(' ');
+// ================== Helper Functions ==================
+function randomChoice(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// ---------- Batch generate with style ----------
-function batchGenerate(niche, count, wordsPerName){
-  const style = document.querySelector('input[name="style"]:checked')?.value || 'trendy';
-  const set = new Set();
-  let guard = 0;
-  const maxAttempts = Math.max(1500, count * 50);
-
-  while(set.size < count && guard < maxAttempts){
-    guard++;
-    let name = '';
-    if(wordsPerName === 1) name = makeOneWord(niche, style);
-    else name = makeMultiWord(niche, wordsPerName, style);
-
-    if(!name || name.length < 2) continue;
-    if(!Array.from(set).some(n => n.toLowerCase() === name.toLowerCase())) set.add(name);
-  }
-  return Array.from(set);
+function applyStyle(name, style) {
+    switch (style) {
+        case "professional":
+            return name; // Plain, clean
+        case "trendy":
+            return name.toLowerCase(); // Modern lowercase
+        case "creative":
+            return name
+                .split("")
+                .map((ch, i) => (i % 2 === 0 ? ch.toUpperCase() : ch.toLowerCase()))
+                .join(""); // Alternating case
+        default:
+            return name;
+    }
 }
+
+// ================== Generator Logic ==================
+function generateName() {
+    const niche = document.getElementById("niche").value;
+    const style = document.getElementById("style").value;
+    const wordCount = document.getElementById("wordCount").value;
+
+    const bank = wordBank[niche];
+    if (!bank) return "⚠️ Invalid niche selected";
+
+    let name = "";
+
+    if (wordCount === "1") {
+        name = randomChoice(bank.prefixes.concat(bank.suffixes));
+    } else if (wordCount === "2") {
+        name = randomChoice(bank.prefixes) + " " + randomChoice(bank.suffixes);
+    } else {
+        name = randomChoice(bank.prefixes) + " " + randomChoice(bank.suffixes) + " " + randomChoice(bank.suffixes);
+    }
+
+    return applyStyle(name, style);
+}
+
+// ================== Hooking into Button ==================
+document.getElementById("generateBtn").addEventListener("click", () => {
+    const result = generateName();
+    document.getElementById("result").textContent = result;
+});
