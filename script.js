@@ -1,26 +1,35 @@
 // ================== Hamburger Menu ==================
-const menuBtn = document.getElementById("menu-btn");
-const sideDrawer = document.getElementById("side-drawer");
-const closeDrawer = document.getElementById("close-drawer");
+const hamburger = document.getElementById("hamburger");
+const drawer = document.getElementById("drawer");
+const drawerClose = document.getElementById("drawerClose");
+const drawerOverlay = document.getElementById("drawerOverlay");
 
-menuBtn.addEventListener("click", () => {
-    sideDrawer.classList.toggle("open");
+hamburger.addEventListener("click", () => {
+    drawer.classList.add("open");
+    drawerOverlay.classList.add("active");
 });
 
-closeDrawer.addEventListener("click", () => {
-    sideDrawer.classList.remove("open");
+drawerClose.addEventListener("click", () => {
+    drawer.classList.remove("open");
+    drawerOverlay.classList.remove("active");
+});
+
+drawerOverlay.addEventListener("click", () => {
+    drawer.classList.remove("open");
+    drawerOverlay.classList.remove("active");
 });
 
 // ================== FAQ Section ==================
-const faqItems = document.querySelectorAll(".faq-item");
-
-faqItems.forEach((item) => {
-    item.querySelector(".faq-question").addEventListener("click", () => {
-        item.classList.toggle("open");
+const faqToggles = document.querySelectorAll(".faq-toggle");
+faqToggles.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        btn.classList.toggle("active");
+        const panel = btn.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
     });
 });
 
-// ================== Word Bank with Prefixes & Suffixes ==================
+// ================== Word Bank (prefixes & suffixes) ==================
 const wordBank = {
     general: {
         prefixes: ["Nova", "Pulse", "Prime", "Vision", "Next"],
@@ -42,7 +51,6 @@ const wordBank = {
         prefixes: ["Taste", "Fresh", "Flavor", "Yum", "Chef"],
         suffixes: ["Bite", "Kitchen", "Feast", "Plates", "Corner"],
     }
-    // 👉 You can add more niches here later
 };
 
 // ================== Helper Functions ==================
@@ -53,43 +61,60 @@ function randomChoice(arr) {
 function applyStyle(name, style) {
     switch (style) {
         case "professional":
-            return name; // Plain, clean
+            return name;
         case "trendy":
-            return name.toLowerCase(); // Modern lowercase
+            return name.toLowerCase();
         case "creative":
-            return name
-                .split("")
+            return name.split("")
                 .map((ch, i) => (i % 2 === 0 ? ch.toUpperCase() : ch.toLowerCase()))
-                .join(""); // Alternating case
+                .join("");
         default:
             return name;
     }
 }
 
 // ================== Generator Logic ==================
-function generateName() {
-    const niche = document.getElementById("niche").value;
-    const style = document.getElementById("style").value;
-    const wordCount = document.getElementById("wordCount").value;
+function generateAndRender() {
+    const niche = document.getElementById("nicheSelect").value;
+    const style = document.querySelector('input[name="style"]:checked').value;
+    const wordCount = parseInt(document.getElementById("wordCountSelect").value);
+    const count = parseInt(document.getElementById("countSelect").value);
 
     const bank = wordBank[niche];
-    if (!bank) return "⚠️ Invalid niche selected";
+    if (!bank) return;
 
-    let name = "";
-
-    if (wordCount === "1") {
-        name = randomChoice(bank.prefixes.concat(bank.suffixes));
-    } else if (wordCount === "2") {
-        name = randomChoice(bank.prefixes) + " " + randomChoice(bank.suffixes);
-    } else {
-        name = randomChoice(bank.prefixes) + " " + randomChoice(bank.suffixes) + " " + randomChoice(bank.suffixes);
+    let results = [];
+    for (let i = 0; i < count; i++) {
+        let parts = [];
+        if (wordCount === 1) {
+            parts.push(randomChoice(bank.prefixes.concat(bank.suffixes)));
+        } else if (wordCount === 2) {
+            parts.push(randomChoice(bank.prefixes));
+            parts.push(randomChoice(bank.suffixes));
+        } else {
+            parts.push(randomChoice(bank.prefixes));
+            parts.push(randomChoice(bank.suffixes));
+            parts.push(randomChoice(bank.suffixes));
+        }
+        let name = applyStyle(parts.join(" "), style);
+        results.push(name);
     }
 
-    return applyStyle(name, style);
+    // Render results
+    const resultsEl = document.getElementById("results");
+    const resultsMeta = document.getElementById("resultsMeta");
+    resultsEl.innerHTML = "";
+    resultsMeta.textContent = `Generated ${results.length} names`;
+    results.forEach(n => {
+        const div = document.createElement("div");
+        div.className = "result-item";
+        div.textContent = n;
+        resultsEl.appendChild(div);
+    });
 }
 
-// ================== Hooking into Button ==================
-document.getElementById("generateBtn").addEventListener("click", () => {
-    const result = generateName();
-    document.getElementById("result").textContent = result;
+// Hook up Generate button
+document.getElementById("generateBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    generateAndRender();
 });
