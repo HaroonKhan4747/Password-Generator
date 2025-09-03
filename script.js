@@ -5,19 +5,23 @@ const drawerClose = document.getElementById("drawerClose");
 const drawerOverlay = document.getElementById("drawerOverlay");
 
 hamburger.addEventListener("click", () => {
-    drawer.classList.add("open");
+    drawer.classList.remove("hidden");
+    drawer.classList.add("block");
     drawerOverlay.classList.add("active");
 });
 
 drawerClose.addEventListener("click", () => {
-    drawer.classList.remove("open");
+    drawer.classList.remove("block");
+    drawer.classList.add("hidden");
     drawerOverlay.classList.remove("active");
 });
 
 drawerOverlay.addEventListener("click", () => {
-    drawer.classList.remove("open");
+    drawer.classList.remove("block");
+    drawer.classList.add("hidden");
     drawerOverlay.classList.remove("active");
 });
+
 
 // ================== FAQ Section ==================
 const faqToggles = document.querySelectorAll(".faq-toggle");
