@@ -5,20 +5,20 @@ const drawerClose = document.getElementById("drawerClose");
 const drawerOverlay = document.getElementById("drawerOverlay");
 
 hamburger.addEventListener("click", () => {
-    drawer.classList.remove("hidden");
-    drawer.classList.add("block");
+    drawer.classList.remove("-translate-x-full");
+    drawer.classList.add("translate-x-0");
     drawerOverlay.classList.add("active");
 });
 
 drawerClose.addEventListener("click", () => {
-    drawer.classList.remove("block");
-    drawer.classList.add("hidden");
+    drawer.classList.remove("translate-x-0");
+    drawer.classList.add("-translate-x-full");
     drawerOverlay.classList.remove("active");
 });
 
 drawerOverlay.addEventListener("click", () => {
-    drawer.classList.remove("block");
-    drawer.classList.add("hidden");
+    drawer.classList.remove("translate-x-0");
+    drawer.classList.add("-translate-x-full");
     drawerOverlay.classList.remove("active");
 });
 
