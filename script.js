@@ -5,20 +5,17 @@ const drawerClose = document.getElementById("drawerClose");
 const drawerOverlay = document.getElementById("drawerOverlay");
 
 hamburger.addEventListener("click", () => {
-    drawer.classList.remove("-translate-x-full");
-    drawer.classList.add("translate-x-0");
+    drawer.classList.add("open");
     drawerOverlay.classList.add("active");
 });
 
 drawerClose.addEventListener("click", () => {
-    drawer.classList.remove("translate-x-0");
-    drawer.classList.add("-translate-x-full");
+    drawer.classList.remove("open");
     drawerOverlay.classList.remove("active");
 });
 
 drawerOverlay.addEventListener("click", () => {
-    drawer.classList.remove("translate-x-0");
-    drawer.classList.add("-translate-x-full");
+    drawer.classList.remove("open");
     drawerOverlay.classList.remove("active");
 });
 
