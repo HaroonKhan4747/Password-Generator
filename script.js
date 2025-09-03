@@ -22,7 +22,6 @@ drawerOverlay.addEventListener("click", () => {
     drawerOverlay.classList.remove("active");
 });
 
-
 // ================== FAQ Section ==================
 const faqToggles = document.querySelectorAll(".faq-toggle");
 faqToggles.forEach((btn) => {
