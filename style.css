@@ -115,4 +115,34 @@ a { color: var(--blue-600); text-decoration: none; }
     margin-top: 0 !important;
     padding-top: 40px; /* Adjust if you want a little breathing space */
   }
+  
 }
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -260px; /* Hidden by default */
+  width: 260px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  transition: left 0.3s ease;
+  z-index: 1001;
+  padding: 1rem;
+}
+
+.drawer.open {
+  left: 0; /* Slides in */
+}
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 1000;
+}
+
+.drawer-overlay.active {
+  display: block;
+}
+
