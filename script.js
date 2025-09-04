@@ -5,17 +5,17 @@ const drawerClose = document.getElementById("drawerClose");
 const drawerOverlay = document.getElementById("drawerOverlay");
 
 hamburger.addEventListener("click", () => {
-    drawer.classList.add("open");
+    drawer.classList.add("active");       // match CSS
     drawerOverlay.classList.add("active");
 });
 
 drawerClose.addEventListener("click", () => {
-    drawer.classList.remove("open");
+    drawer.classList.remove("active");    // match CSS
     drawerOverlay.classList.remove("active");
 });
 
 drawerOverlay.addEventListener("click", () => {
-    drawer.classList.remove("open");
+    drawer.classList.remove("active");    // match CSS
     drawerOverlay.classList.remove("active");
 });
 
