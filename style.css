@@ -25,20 +25,20 @@ html,body{height:100%;margin:0;font-family:Inter,Arial,sans-serif;background:var
 /* Drawer (mobile) */
 .drawer {
   position: fixed;
-  right: -320px;
   top: 0;
+  right: -320px; /* start hidden off right side */
   width: 320px;
   height: 100%;
   background: linear-gradient(180deg, var(--blue-500), var(--blue-600));
   color: #fff;
   padding: 18px;
   box-shadow: -12px 0 30px rgba(2,6,23,0.3);
-  transition: right .28s ease;
+  transition: right 0.28s ease;
   z-index: 9999;
 }
 
 .drawer.active {
-  right: 0;
+  right: 0; /* slide in from right */
 }
 
 .drawer-close {
@@ -57,17 +57,16 @@ html,body{height:100%;margin:0;font-family:Inter,Arial,sans-serif;background:var
 }
 
 .drawer-nav a {
-  color: #fff;
+  color: #fff;              /* make links visible */
   text-decoration: none;
   font-weight: 700;
-  padding: 12px 10px;
+  padding: 10px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.08); /* subtle background so it's visible */
-  transition: background .2s;
+  transition: background 0.2s;
 }
 
 .drawer-nav a:hover {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .drawer-overlay {
@@ -76,7 +75,7 @@ html,body{height:100%;margin:0;font-family:Inter,Arial,sans-serif;background:var
   background: rgba(0,0,0,0.28);
   opacity: 0;
   pointer-events: none;
-  transition: opacity .28s ease;
+  transition: opacity 0.28s;
   z-index: 9998;
 }
 
