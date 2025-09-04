@@ -23,13 +23,67 @@ html,body{height:100%;margin:0;font-family:Inter,Arial,sans-serif;background:var
 .hamburger span{display:block;width:22px;height:3px;background:rgba(255,255,255,0.95);margin:4px 0;border-radius:3px}
 
 /* Drawer (mobile) */
-.drawer{position:fixed;right:-320px;top:0;width:320px;height:100%;background:linear-gradient(180deg,var(--blue-500),var(--blue-600));color:#fff;padding:18px;box-shadow:-12px 0 30px rgba(2,6,23,0.3);transition:right .28s;z-index:9999}
-.drawer.active{right:0}
-.drawer-close{background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer}
-.drawer-nav{margin-top:36px;display:flex;flex-direction:column;gap:12px}
-.drawer-nav a{color:#fff;text-decoration:none;font-weight:700;padding:8px;border-radius:8px}
-.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.28);opacity:0;pointer-events:none;transition:opacity .28s;z-index:9998}
-.drawer-overlay.active{opacity:1;pointer-events:auto}
+.drawer {
+  position: fixed;
+  right: -320px;
+  top: 0;
+  width: 320px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--blue-500), var(--blue-600));
+  color: #fff;
+  padding: 18px;
+  box-shadow: -12px 0 30px rgba(2,6,23,0.3);
+  transition: right .28s ease;
+  z-index: 9999;
+}
+
+.drawer.active {
+  right: 0;
+}
+
+.drawer-close {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.drawer-nav {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.drawer-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08); /* subtle background so it's visible */
+  transition: background .2s;
+}
+
+.drawer-nav a:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.28);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+  z-index: 9998;
+}
+
+.drawer-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* Hero */
 .hero{
